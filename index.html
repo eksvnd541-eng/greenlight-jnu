@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta name="description" content="6월 모집 정책부터 상시 지원, 마감 정책까지 한눈에 확인하는 광주 청년 정책 큐레이션 플랫폼입니다.">
+    <meta name="google-site-verification" content="3nWDdSb0n0dagEFweMcBgYWEsFABxpkrYPBL-wWDskM" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="그린라이트 광주 2026 | 광주 청년 정책 플랫폼">
+    <meta property="og:description" content="광주 청년 정책 큐레이션! 6월 신규 모집 정책과 마감 정책을 한눈에 확인하세요.">
+<meta property="og:image" content="greenlight.jpeg"> <meta property="og:url" content="https://www.greenlight-gwangju.co.kr">
+    <meta name="naver-site-verification" content="e08a2244309ce4a61f1e4d2a29f9054541a05c05" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그린라이트 광주 2026 | 광주 청년 정책 플랫폼</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-main: #F7FBF8;
+            --forest-green: #064E3B;
+            --green: #10B981;
+            --green-dark: #047857;
+            --mint-light: #F1F8F5;
+            --charcoal: #111827;
+            --gray-text: #6B7280;
+            --white: #FFFFFF;
+
+            --chip-gapyear: #E8F5E9; 
+            --chip-gapyear-txt: #2E7D32;
+            --chip-lab: #E0F2F1; 
+            --chip-lab-txt: #00796B;
+            --chip-cert: #E3F2FD; 
+            --chip-cert-txt: #1565C0;
+            --chip-alert: #FFEBEE; 
+            --chip-alert-txt: #C62828;
+            --chip-work: #F3E8FF;
+            --chip-work-txt: #7E22CE;
+            --chip-supporter: #FEF3C7;
+            --chip-supporter-txt: #B45309;
+            --chip-closed: #F3F4F6;
+            --chip-closed-txt: #6B7280;
+            --chip-forum: #ECFDF5;
+            --chip-forum-txt: #047857;
+            --chip-startup: #E0F2FE;
+            --chip-startup-txt: #0369A1;
+        }
+
+        * { box-sizing: border-box; font-family: 'Inter', 'Noto Sans KR', sans-serif; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-main); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
+
+        /* 📌 상단 고정 네비게이션 바 */
+        .nav-bar {
+            position: sticky; top: 0; width: 100%; background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #DDEFE2; display: flex;
+            justify-content: space-between; align-items: center; padding: 12px 60px; z-index: 100;
+        }
+        .logo-wrapper { display: flex; align-items: center; cursor: pointer; }
+        .logo-img { height: 38px; width: auto; object-fit: contain; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--charcoal); font-size: 14px; font-weight: 700; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--green-dark); }
+        .btn-top-apply { padding: 9px 20px; background-color: var(--green-dark); color: var(--white); border: none; font-size: 13px; font-weight: 800; cursor: pointer; border-radius: 10px; }
+
+        /* 🌿 메인 히어로: 여백형 카드 레이아웃 */
+        .hero-container {
+            width: min(1440px, calc(100% - 80px));
+            margin: 38px auto 42px;
+            padding: 54px 44px 58px;
+            display: grid;
+            grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+            gap: 56px;
+            align-items: center;
+            background: #FFFFFF;
+            border: 1px solid #E5EFE8;
+            border-radius: 34px;
+            box-shadow: 0 24px 80px rgba(15, 23, 42, 0.06);
+            overflow: visible;
+        }
+
+        .hero-left { padding: 6px 0 0 2px; text-align: left; }
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 18px; background: #ECFDF5; color: var(--green-dark);
+            font-size: 13px; font-weight: 900; border-radius: 999px;
+            width: max-content; margin-bottom: 24px; border: 1px solid #B7E4CF;
+        }
+        .hero-tag::before {
+            content: ""; width: 7px; height: 7px; background: var(--green);
+            border-radius: 50%; display: inline-block;
+        }
+        .hero-left h1 {
+            font-size: clamp(40px, 4.2vw, 66px);
+            font-weight: 900; color: #0F172A; line-height: 1.16;
+            margin-bottom: 24px; letter-spacing: -0.06em;
+        }
+        .hero-left h1 span { color: var(--green); border-bottom: 5px solid rgba(16, 185, 129, 0.22); }
+        .hero-left p.desc {
+            font-size: 18px; color: var(--gray-text); max-width: 560px;
+            margin-bottom: 32px; line-height: 1.75; word-break: keep-all;
+        }
+        .hero-button-row { display: flex; align-items: center; gap: 14px; margin-bottom: 38px; flex-wrap: wrap; }
+        .btn-hero-green {
+            padding: 15px 26px; background: var(--green); color: var(--white); border: none;
+            font-size: 16px; font-weight: 900; cursor: pointer; border-radius: 15px;
+            display: inline-flex; align-items: center; gap: 10px; width: max-content;
+            box-shadow: 0 16px 30px rgba(16, 185, 129, 0.24);
+        }
+        .btn-hero-outline {
+            padding: 14px 24px; background: #FFFFFF; color: #374151; border: 1px solid #E5E7EB;
+            font-size: 16px; font-weight: 900; cursor: pointer; border-radius: 15px;
+            display: inline-flex; align-items: center; gap: 8px; width: max-content;
+        }
+        .hero-stats-row { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+        .hero-stat-item { display: flex; align-items: center; gap: 12px; min-width: 132px; }
+        .hero-stat-icon {
+            width: 36px; height: 36px; border-radius: 13px; background: #ECFDF5; color: var(--green);
+            display: flex; align-items: center; justify-content: center; font-size: 15px; flex: 0 0 auto;
+        }
+        .hero-stat-text strong { display: block; font-size: 21px; color: #111827; font-weight: 900; line-height: 1.1; }
+        .hero-stat-text span { display: block; font-size: 13px; color: #9CA3AF; font-weight: 800; margin-top: 4px; }
+
+        .hero-right-slider {
+            position: relative; width: 100%; max-width: 760px; height: 430px;
+            justify-self: end; overflow: hidden; border-radius: 30px;
+            background: linear-gradient(135deg, #F8FAFC 0%, #EEF7F1 100%);
+            box-shadow: 0 24px 65px rgba(15, 23, 42, 0.10);
+        }
+        .slide-track {
+            display: flex; width: 500%; height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .slide-view {
+            width: 20%; height: 100%; position: relative;
+            display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 28px;
+            align-items: center; padding: 54px 50px 52px; overflow: hidden;
+        }
+        .slide-img-bg {
+            position: relative;
+            width: 100%; height: 100%; min-height: 292px;
+            background: rgba(255,255,255,0.72);
+            border: 1px solid rgba(183, 228, 207, 0.55);
+            border-radius: 28px;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; z-index: 1; padding: 18px;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.07);
+        }
+        .slide-img-bg img {
+            width: 100%; height: 100%; object-fit: contain; object-position: center center;
+            border-radius: 18px;
+            filter: drop-shadow(0 16px 28px rgba(15, 23, 42, 0.10));
+        }
+        .slide-placeholder {
+            width: 100%; min-height: 220px;
+            border: 2px dashed #B7E4CF; border-radius: 24px;
+            background: rgba(255,255,255,0.78);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 12px; color: #047857; text-align: center; padding: 26px;
+        }
+        .slide-placeholder i { font-size: 34px; opacity: 0.85; }
+        .slide-placeholder strong { font-size: 22px; font-weight: 900; line-height: 1.25; word-break: keep-all; }
+        .slide-placeholder span { font-size: 13px; font-weight: 800; color: #6B7280; line-height: 1.45; word-break: keep-all; }
+        .slide-info-overlay {
+            position: relative; z-index: 2;
+            width: 100%; min-height: 210px;
+            margin: 0;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(8px);
+            padding: 28px 30px;
+            border-radius: 26px;
+            border-left: 7px solid var(--green-dark);
+            text-align: left;
+            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.10);
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .slide-info-overlay .slide-badge {
+            display: inline-block;
+            padding: 4px 9px;
+            font-size: 11px;
+            font-weight: 900;
+            border-radius: 8px;
+            margin-bottom: 7px;
+        }
+        .slide-info-overlay .slide-badge.active { background: #ECFDF5; color: var(--green-dark); }
+        .slide-info-overlay .slide-badge.always { background: #E0F2FE; color: #0369A1; }
+        .slide-info-overlay h2 {
+            font-size: 24px;
+            font-weight: 900;
+            color: #111827;
+            line-height: 1.32;
+            word-break: keep-all;
+            letter-spacing: -0.04em;
+        }
+        .slider-dots {
+            position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+            z-index: 10; display: flex; gap: 8px; padding: 8px 12px;
+            background: rgba(255,255,255,0.7); border-radius: 999px; backdrop-filter: blur(6px);
+        }
+        .dot { width: 9px; height: 9px; background: #D1D5DB; border-radius: 50%; cursor: pointer; transition: all 0.3s; }
+        .dot.active { background: var(--green); width: 28px; border-radius: 999px; }
+
+        .hero-floating-count {
+            position: absolute; top: 18px; left: 22px; z-index: 30;
+            width: auto; min-height: auto; background: #FFFFFF; border-radius: 999px;
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.10);
+            display: flex; flex-direction: row; align-items: center; gap: 9px;
+            padding: 9px 16px 9px 13px;
+            border: 1px solid rgba(183, 228, 207, 0.75);
+        }
+        .hero-floating-count strong { font-size: 22px; color: var(--green); font-weight: 900; line-height: 1; }
+        .hero-floating-count span { font-size: 12px; color: #6B7280; font-weight: 900; line-height: 1.2; margin-top: 0; word-break: keep-all; letter-spacing: -0.03em; }
+        .hero-floating-status {
+            position: absolute; right: 20px; top: 20px; z-index: 30;
+            background: var(--green); color: #FFFFFF; border-radius: 16px; padding: 13px 17px;
+            box-shadow: 0 14px 30px rgba(16,185,129,0.22);
+        }
+        .hero-floating-status span { display: block; font-size: 11px; font-weight: 800; opacity: 0.9; }
+        .hero-floating-status strong { display: block; font-size: 17px; font-weight: 900; margin-top: 2px; }
+        .hero-floating-status small { display: block; font-size: 10px; opacity: 0.9; margin-top: 1px; }
+
+        /* 👑 메인 스플릿 레이아웃 시스템 */
+        .main-split-wrapper { display: grid; grid-template-columns: 1fr 360px; gap: 40px; max-width: 1500px; margin: 0 auto; padding: 20px 60px 50px; align-items: start; }
+        .content-scroll-area { display: flex; flex-direction: column; gap: 60px; min-width: 0; }
+        .content-block-title { font-size: 24px; color: var(--forest-green); margin-bottom: 25px; font-weight: 800; border-bottom: 2px solid var(--forest-green); padding-bottom: 10px; }
+        .sidebar-sticky-area { position: sticky; top: 100px; z-index: 50; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .always-horizontal-container { display: flex; flex-direction: column; gap: 25px; }
+
+        /* 🟩 정책 카드 */
+        .policy-card { background: var(--white); padding: 30px; border: 1px solid #C8E6C9; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: all 0.3s ease; cursor: default; display: flex; flex-direction: column; justify-content: space-between; position: relative; padding-bottom: 70px; border-radius: 18px; overflow: hidden; }
+        .policy-card:hover { transform: translateY(-5px); border-color: var(--forest-green); box-shadow: 0 12px 25px rgba(6, 78, 59, 0.1); }
+        .policy-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px; gap: 14px; }
+        .policy-header h3 { font-size: 20px; font-weight: 800; color: var(--forest-green); }
+        .policy-header .tag { padding: 4px 10px; background: var(--mint-light); color: var(--forest-green); font-size: 11px; font-weight: 800; border-radius: 999px; white-space: nowrap; }
+        .policy-img-slot { width: 100%; height: 200px; background-color: #E2E8F0; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: #888; font-size: 13px; overflow: hidden; border-radius: 12px; }
+        .policy-img-slot img { width: 100%; height: 100%; object-fit: contain; }
+        .summary-info-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+        .summary-info-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #444; word-break: keep-all; }
+        .summary-info-item i { width: 16px; color: #2E7D32; font-size: 14px; }
+        .feature-highlight-box { background-color: #F1F8F5; border-radius: 10px; padding: 12px 15px; font-size: 14px; color: var(--forest-green); font-weight: 700; border-left: 4px solid #2E7D32; word-break: keep-all; }
+
+        .action-circle-wrapper { position: absolute; bottom: 25px; right: 25px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; color: var(--forest-green); }
+        .detail-link { text-decoration: none; color: inherit; }
+        .detail-link:visited { color: inherit; }
+        .btn-action-circle { width: 32px; height: 32px; background-color: var(--mint-light); border: 1px solid #C8E6C9; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--forest-green); transition: all 0.3s; }
+        .policy-card:hover .btn-action-circle, .policy-horizontal-card:hover .btn-action-circle { background-color: var(--forest-green); color: var(--white); border-color: var(--forest-green); }
+
+        .policy-horizontal-card { display: grid; grid-template-columns: 240px minmax(0, 1fr) 140px; background: var(--white); border: 1px solid #C8E6C9; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: all 0.3s ease; cursor: default; overflow: hidden; min-height: 200px; align-items: stretch; position: relative; border-radius: 18px; }
+        .policy-horizontal-card:hover { transform: scale(1.01); border-color: var(--forest-green); box-shadow: 0 10px 25px rgba(6, 78, 59, 0.08); }
+        .horizontal-img-slot { width: 100%; height: 100%; min-height: 200px; background-color: #E2E8F0; display: flex; align-items: center; justify-content: center; color: #888; font-size: 13px; overflow: hidden; }
+        .horizontal-img-slot img { width: 100%; height: 100%; object-fit: contain; }
+        .horizontal-info-core { padding: 30px; text-align: left; min-width: 0; }
+        .horizontal-title-flex { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; flex-wrap: wrap; }
+        .horizontal-title-flex h3 { font-size: 22px; font-weight: 900; color: var(--forest-green); }
+        .horizontal-title-flex .always-tag { padding: 3px 8px; background: #E3F2FD; color: #1565C0; font-size: 11px; font-weight: 800; border-radius: 999px; }
+        .horizontal-action-zone { display: flex; justify-content: center; align-items: center; height: 100%; border-left: 1px dashed #E0E0E0; color: var(--forest-green); font-weight: 800; font-size: 14px; gap: 6px; padding: 0 12px; }
+
+        /* 📅 캘린더 */
+        .calendar-container { background: var(--white); padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(200,230,201,0.5); }
+        .calendar-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 5px; }
+        .calendar-nav-btn { font-size: 16px; color: #999; cursor: pointer; user-select: none; }
+        .calendar-month-title { color: var(--charcoal); font-size: 16px; font-weight: 800; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 12px; column-gap: 6px; margin-bottom: 25px; }
+        .calendar-header { text-align: center; font-weight: 700; padding: 5px 0; font-size: 11px; color: #BBB; text-transform: uppercase; }
+        .calendar-cell { min-height: 52px; padding: 4px 2px; background: #FFF; font-size: 12px; font-weight: 600; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .calendar-cell .day-num { display: block; color: #444; margin-bottom: 3px; font-weight: 700; }
+        .calendar-cell.empty { background: none; }
+        .event-chip { font-size: 9px; padding: 2px 6px; width: 100%; font-weight: 700; border-radius: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; margin-top: 1px; scale: 0.95; }
+        .event-chip.gapyear { background-color: var(--chip-gapyear); color: var(--chip-gapyear-txt); }
+        .event-chip.lab { background-color: var(--chip-lab); color: var(--chip-lab-txt); }
+        .event-chip.cert { background-color: var(--chip-cert); color: var(--chip-cert-txt); }
+        .event-chip.alert { background-color: var(--chip-alert); color: var(--chip-alert-txt); }
+        .event-chip.work { background-color: var(--chip-work); color: var(--chip-work-txt); }
+        .event-chip.supporter { background-color: var(--chip-supporter); color: var(--chip-supporter-txt); }
+        .event-chip.closed { background-color: var(--chip-closed); color: var(--chip-closed-txt); }
+        .event-chip.forum { background-color: var(--chip-forum); color: var(--chip-forum-txt); }
+        .event-chip.startup { background-color: var(--chip-startup); color: var(--chip-startup-txt); }
+        .tag.closed { background:#FEE2E2 !important; color:#B91C1C !important; }
+        .tag.new { background:#F3E8FF !important; color:#7E22CE !important; }
+        .tag.recruit { background:#FEF3C7 !important; color:#B45309 !important; }
+        .tag.culture { background:#ECFDF5 !important; color:#047857 !important; }
+        .tag.startup { background:#E0F2FE !important; color:#0369A1 !important; }
+        .archive-status-chip { display:inline-flex; align-items:center; gap:6px; margin-top:16px; padding:6px 10px; border-radius:999px; background:#FEE2E2; color:#B91C1C; font-size:12px; font-weight:900; }
+        .calendar-legend { display: flex; gap: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #F0F0F0; justify-content: flex-start; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666; font-weight: 700; }
+        .legend-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+        .calendar-schedule-list { text-align: left; width: 100%; }
+        .schedule-group-title { font-size: 14px; font-weight: 900; color: var(--forest-green); margin-bottom: 15px; margin-top: 20px; display: block; border-left: 3px solid #2E7D32; padding-left: 8px; }
+        .schedule-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; width: 100%; }
+        .schedule-date { font-size: 13px; font-weight: 800; color: #888; font-family: 'Inter'; width: 45px; flex-shrink: 0; text-align: left; }
+        .schedule-bullet-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+        .schedule-bullet-dot.blue { background-color: #818CF8; }
+        .schedule-bullet-dot.green { background-color: #34D399; }
+        .schedule-bullet-dot.gray { background-color: #CCC; }
+        .schedule-text { font-size: 13px; font-weight: 700; color: #333; line-height: 1.4; flex-grow: 1; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .schedule-item.past .schedule-text, .schedule-item.past .schedule-date { color: #A0A0A0; text-decoration: none; }
+
+        .footer { padding: 40px; background: var(--white); border-top: 1px solid #C8E6C9; font-size: 13px; color: #888; text-align: center; }
+        .portal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.99); z-index: 1000; display: none; overflow-y: auto; padding: 80px 120px; text-align: left; }
+        .portal-header-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid #EEE; padding-bottom: 20px; }
+        .portal-header-box h2 { color: var(--forest-green); font-size: 32px; font-weight: 900; }
+        .close-portal-icon { font-size: 24px; cursor: pointer; color: #888; }
+        .portal-main-info { background: #F1F8F5; padding: 35px; border-left: 5px solid #2E7D32; border-radius: 10px; margin-bottom: 40px; }
+        .portal-main-info p { font-size: 15px; margin-bottom: 12px; color: #333; }
+        .portal-main-info p strong { color: var(--forest-green); width: 120px; display: inline-block; }
+        .btn-portal-back-home { display: flex; align-items: center; gap: 10px; width: max-content; padding: 14px 35px; background-color: var(--charcoal); color: var(--white); border: none; font-size: 14px; font-weight: 800; cursor: pointer; border-radius: 10px; margin-top: 20px; }
+
+        @media (max-width: 1180px) {
+            .hero-container { grid-template-columns: 1fr; width: min(940px, calc(100% - 40px)); gap: 34px; padding: 40px 34px 48px; }
+            .hero-right-slider { justify-self: stretch; max-width: 100%; height: 420px; }
+            .main-split-wrapper { grid-template-columns: 1fr; padding: 20px 30px 50px; }
+            .sidebar-sticky-area { position: static; }
+        }
+        @media (max-width: 760px) {
+            .nav-bar { padding: 12px 20px; }
+            .nav-links { display: none; }
+            .hero-container { width: calc(100% - 24px); margin: 18px auto 30px; padding: 30px 22px 38px; border-radius: 24px; }
+            .hero-left h1 { font-size: 39px; }
+            .hero-left p.desc { font-size: 16px; }
+            .hero-right-slider { height: auto; min-height: 520px; border-radius: 22px; }
+            .slide-view { grid-template-columns: 1fr; gap: 16px; padding: 60px 22px 56px; }
+            .slide-img-bg { min-height: 260px; padding: 16px; }
+            .slide-info-overlay { width: 100%; min-height: 142px; margin: 0; padding: 20px 22px; }
+            .slide-info-overlay h2 { font-size: 20px; }
+            .hero-floating-count, .hero-floating-status { display: none; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .policy-horizontal-card { grid-template-columns: 1fr; }
+            .horizontal-action-zone { min-height: 70px; border-left: none; border-top: 1px dashed #E0E0E0; }
+        }
+    </style>
+</head>
+<body>
+
+  <div class="nav-bar">
+    <div class="logo-wrapper" onclick="window.location.reload();">
+        <img src="greenlight.jpeg" alt="그린라이트 광주 2026" class="logo-img">
+    </div>
+    <div class="nav-links">
+        <a href="#policies-anchor">청년 정책 소개</a>
+        <a href="#services-anchor">상시 지원 프로그램</a>
+        <a href="#archive-anchor">지난 정책</a>
+        <button class="btn-top-apply" onclick="openPortal('signup-portal')">회원가입</button>
+    </div>
+</div>
+
+<div class="portal-overlay" id="signup-portal">
+    <div class="portal-header-box">
+        <h2>회원가입</h2>
+        <span class="close-portal-icon" onclick="closePortal('signup-portal')"><i class="fa-solid fa-xmark"></i></span>
+    </div>
+    <div class="portal-main-info">
+        <p>초대 코드를 입력하여 자격 인증을 완료해주세요.</p>
+        <input type="text" id="inviteCode" placeholder="초대 코드 입력" style="width:100%; padding:15px; border:1px solid #ccc; margin-bottom:10px;">
+        <button class="btn-portal-back-home" onclick="checkCode()">가입 신청하기</button>
+    </div>
+</div>
+
+<div class="portal-overlay" id="forum-member-portal">
+    <div class="portal-header-box">
+        <h2>회원 전용 안내</h2>
+        <span class="close-portal-icon" onclick="closePortal('forum-member-portal')"><i class="fa-solid fa-xmark"></i></span>
+    </div>
+    <div class="portal-main-info">
+        <p><strong>프로그램:</strong> 2026 인문 독서포럼</p>
+        <p><strong>안내:</strong> 본 프로그램은 회원가입을 완료한 참여자에게 상세 일정과 신청 링크가 공개됩니다.</p>
+        <p><strong>접수 시작:</strong> 2026.06.15</p>
+        <p><strong>운영 시작:</strong> 2026.06.29</p>
+        <p><strong>진행 주체:</strong> 지역 비영리단체</p>
+    </div>
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn-portal-back-home" onclick="closePortal('forum-member-portal'); openPortal('signup-portal');"><i class="fa-solid fa-user-plus"></i> 회원가입 후 확인하기</button>
+        <button class="btn-portal-back-home" style="background:#E5E7EB; color:#111827;" onclick="closePortal('forum-member-portal')"><i class="fa-solid fa-arrow-left"></i> 돌아가기</button>
+    </div>
+</div>
+
+    <div class="hero-container">
+        <div class="hero-left">
+            <div class="hero-tag">광주광역시 청년 정책 큐레이션</div>
+            <h1>광주 청년의<br>내일에 <span>청신호</span>를 켜다</h1>
+            <p class="desc">그린라이트 광주는 광주광역시 청년을 위한 정책과 프로그램을 한눈에 보여주는 큐레이션 플랫폼입니다. 6월 신규 모집 정책과 청년 참여 프로그램을 한눈에 정리해보세요.</p>
+
+            <div class="hero-button-row">
+                <button class="btn-hero-green" onclick="document.getElementById('policies-anchor').scrollIntoView({behavior:'smooth'});">
+                    6월 모집 정책 보기 <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button class="btn-hero-outline" onclick="document.getElementById('archive-anchor').scrollIntoView({behavior:'smooth'});">
+                    지난 정책 보기
+                </button>
+            </div>
+
+            <div class="hero-stats-row">
+                <div class="hero-stat-item">
+                    <div class="hero-stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <div class="hero-stat-text"><strong>4개</strong><span>6월 모집·참여 프로그램</span></div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="hero-stat-text"><strong>12,000+</strong><span>청년 수혜자</span></div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-icon"><i class="fa-regular fa-calendar"></i></div>
+                    <div class="hero-stat-text"><strong>매월 업데이트</strong><span>최신 정보 제공</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-right-slider">
+            <div class="hero-floating-count">
+                <strong>4</strong>
+                <span>6월 모집·참여 프로그램</span>
+            </div>
+            <div class="slide-track" id="main-slide-track">
+                <div class="slide-view">
+                    <div class="slide-img-bg"><img src="work-dream.png" alt="광주청년 일경험드림" onerror="showSlidePlaceholder(this, '광주청년 일경험드림');"></div>
+                    <div class="slide-info-overlay"><span class="slide-badge active">신규모집</span><h2>제20기 일경험드림 드림터·드림청년 모집 일정</h2></div>
+                </div>
+                <div class="slide-view">
+                    <div class="slide-img-bg"><img src="youth-supporters.png" alt="청년정책 서포터즈" onerror="showSlidePlaceholder(this, '청년정책 서포터즈 2기');"></div>
+                    <div class="slide-info-overlay"><span class="slide-badge active">접수중</span><h2>청년정책을 콘텐츠로 알리는 서포터즈 2기</h2></div>
+                </div>
+                <div class="slide-view">
+                    <div class="slide-img-bg"><img src="reading-forum.png" alt="2026 인문 독서포럼" onerror="showSlidePlaceholder(this, '2026 인문 독서포럼');"></div>
+                    <div class="slide-info-overlay"><span class="slide-badge active">접수예정</span><h2>비영리단체와 함께하는 2026 인문 독서포럼</h2></div>
+                </div>
+                <div class="slide-view">
+                    <div class="slide-img-bg"><img src="startup-idea.png" alt="청년 창업 아이디어 공모" onerror="showSlidePlaceholder(this, '청년 창업 아이디어 공모');"></div>
+                    <div class="slide-info-overlay"><span class="slide-badge active">접수중</span><h2>남구·광주대학교 협업 창업 아이디어 공모 및 지원</h2></div>
+                </div>
+                <div class="slide-view">
+                    <div class="slide-img-bg"><img src="상상옷장.png" alt="면접복장 대여"></div>
+                    <div class="slide-info-overlay"><span class="slide-badge always">상시진행</span><h2>광주 청년 면접복장 대여 서비스</h2></div>
+                </div>
+            </div>
+
+            <div class="slider-dots">
+                <div class="dot active" onclick="goToSlide(0)"></div>
+                <div class="dot" onclick="goToSlide(1)"></div>
+                <div class="dot" onclick="goToSlide(2)"></div>
+                <div class="dot" onclick="goToSlide(3)"></div>
+                <div class="dot" onclick="goToSlide(4)"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main-split-wrapper">
+        
+        <div class="content-scroll-area">
+            <div id="policies-anchor">
+                <div class="content-block-title">6월 신규·접수 중 정책</div>
+                <div class="grid-2">
+
+                    <div class="policy-card">
+                        <div>
+                            <div class="policy-header"><h3>광주청년 일경험드림</h3><div class="tag new">신규사업</div></div>
+                            <div class="policy-img-slot"><img src="work-dream.png" alt="일경험드림" onerror="this.style.display='none'; this.parentElement.innerHTML='일경험드림 이미지 영역';"></div>
+
+                            <div class="summary-info-list">
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-check"></i> <span><strong>드림터 모집:</strong> 2026.06.01 10:00 ~ 06.17 17:00</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-plus"></i> <span><strong>드림청년 모집:</strong> 2026.06.29 10:00 ~ 07.15 17:00 예정</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-user"></i> <span><strong>지원 대상:</strong> 광주 거주 만 19세~39세 미취업 청년 및 참여사업장</span></div>
+                            </div>
+                            <div class="feature-highlight-box">핵심: 청년에게 실제 직무 경험을 제공하고, 참여사업장에는 인건비를 지원하는 광주 대표 일자리 사업</div>
+                        </div>
+                        <a class="detail-link action-circle-wrapper" href="https://gjyouthdream.com/" target="_blank" rel="noopener noreferrer">상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div></a>
+                    </div>
+
+                    <div class="policy-card">
+                        <div>
+                            <div class="policy-header"><h3>청년정책 서포터즈 2기</h3><div class="tag recruit">접수중</div></div>
+                            <div class="policy-img-slot"><img src="youth-supporters.png" alt="청년정책 서포터즈" onerror="this.style.display='none'; this.parentElement.innerHTML='청년정책 서포터즈 이미지 영역';"></div>
+
+                            <div class="summary-info-list">
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-check"></i> <span><strong>모집 기간:</strong> 2026.06.08 ~ 06.17 17:00</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-user"></i> <span><strong>모집 대상:</strong> 청년정책 및 콘텐츠 제작에 관심 있는 광주 청년</span></div>
+                                <div class="summary-info-item"><i class="fa-solid fa-bullhorn"></i> <span><strong>모집 분야:</strong> 블로그·SNS·유튜브 등 총 7명</span></div>
+                            </div>
+                            <div class="feature-highlight-box">혜택: 콘텐츠 제작비 지원, 분야별 역량강화 교육, 우수활동자 시상</div>
+                        </div>
+                        <a class="detail-link action-circle-wrapper" href="https://youth.gwangju.go.kr/www/50?mapngColumn=policy_id&policyId=1379&svc=&siteId=www&pageIndex=1&srchLocation=&srchPolicyTy=&tabType=&reqstAge=&keyword=&searchYear=2026&order=insertDesc&pageUnit=10&url=%2Fwww%2Fpolicy%2FgjYgPolicyView" target="_blank" rel="noopener noreferrer">상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div></a>
+                    </div>
+
+                    <div class="policy-card">
+                        <div>
+                            <div class="policy-header"><h3>2026 인문 독서포럼</h3><div class="tag culture">회원전용</div></div>
+                            <div class="policy-img-slot"><img src="reading-forum.png" alt="2026 인문 독서포럼" onerror="this.style.display='none'; this.parentElement.innerHTML='인문 독서포럼 이미지 영역';"></div>
+
+                            <div class="summary-info-list">
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-check"></i> <span><strong>접수 기간:</strong> 2026.06.15부터 접수 시작</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-plus"></i> <span><strong>운영 시작:</strong> 2026.06.29</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-user"></i> <span><strong>참여 대상:</strong> 회원가입을 완료한 광주 청년 및 시민</span></div>
+                            </div>
+                            <div class="feature-highlight-box">소개: 비영리단체가 진행하는 회원 전용 인문 독서포럼입니다. 회원가입 후 상세 일정과 참여 안내를 확인할 수 있습니다.</div>
+                        </div>
+                        <a class="detail-link action-circle-wrapper" href="#" onclick="openPortal('forum-member-portal'); return false;">상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div></a>
+                    </div>
+
+                    <div class="policy-card">
+                        <div>
+                            <div class="policy-header"><h3>2026년 창업 아이디어 공모 및 지원</h3><div class="tag startup">접수중</div></div>
+                            <div class="policy-img-slot"><img src="startup-idea.png" alt="2026년 창업 아이디어 공모 및 지원" onerror="this.style.display='none'; this.parentElement.innerHTML='창업 아이디어 공모 이미지 영역';"></div>
+
+                            <div class="summary-info-list">
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-check"></i> <span><strong>신청 기간:</strong> 2026.05.26 ~ 06.12</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-building"></i> <span><strong>지원 규모:</strong> 6개 업체 선정</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-handshake"></i> <span><strong>담당 기관:</strong> 광주광역시 남구청 · 광주대학교 협업</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-lightbulb"></i> <span><strong>공모 내용:</strong> 창의적인 창업 아이디어 보유 창업가 발굴·지원</span></div>
+                            </div>
+                            <div class="feature-highlight-box">혜택: 총 6,000만원 규모 사업화 자금 지원(업체별 1,000만원)과 창업 기본교육·멘토링 제공</div>
+                        </div>
+                        <a class="detail-link action-circle-wrapper" href="https://youth.gwangju.go.kr/www/50?mapngColumn=policy_id&policyId=1372&svc=&siteId=www&pageIndex=1&srchLocation=&srchPolicyTy=&tabType=&reqstAge=&keyword=&searchYear=2026&order=insertDesc&pageUnit=10&url=%2Fwww%2Fpolicy%2FgjYgPolicyView" target="_blank" rel="noopener noreferrer">상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="services-anchor">
+                <div class="content-block-title">상시 지원 프로그램 (ALWAYS ON)</div>
+                <div class="always-horizontal-container">
+                    
+                    <div class="policy-horizontal-card">
+                        <div class="horizontal-img-slot"><img src="상상옷장.png" alt="면접복장 대여"></div>
+                        <div class="horizontal-info-core">
+                            <div class="horizontal-title-flex"><h3>면접복장 대여</h3><span class="always-tag">상시진행</span></div>
+                            <div class="summary-info-list" style="margin-bottom: 10px;">
+                                <div class="summary-info-item"><i class="fa-regular fa-clock"></i> <span><strong>운영 방식:</strong> 연중 상시 운영 (예약제 수령)</span></div>
+                                <div class="summary-info-item"><i class="fa-solid fa-location-dot"></i> <span><strong>대여 장소:</strong> 광주청년센터 토닥토닥 상무점 2층 방문 수령</span></div>
+                            </div>
+                            <div class="feature-highlight-box" style="margin-bottom:0; width:max-content; padding:6px 15px;">혜택: 면접복장 상·하의, 블라우스, 구두 일체 무상 대여</div>
+                        </div>
+                        <a class="detail-link horizontal-action-zone" href="https://youth.gwangju.go.kr/www/50?mapngColumn=policy_id&policyId=1290&svc=&siteId=www&pageIndex=1&srchLocation=&srchPolicyTy=&tabType=&reqstAge=&keyword=%EC%A0%95%EC%9E%A5&searchYear=2026&order=insertDesc&pageUnit=10&url=%2Fwww%2Fpolicy%2FgjYgPolicyView" target="_blank" rel="noopener noreferrer">
+                            상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+
+                    <div class="policy-horizontal-card">
+                        <div class="horizontal-img-slot"><img src="이력서 사진.png" alt="이력서촬영"></div>
+                        <div class="horizontal-info-core">
+                            <div class="horizontal-title-flex"><h3>이력서 촬영</h3><span class="always-tag">상시진행</span></div>
+                            <div class="summary-info-list" style="margin-bottom: 10px;">
+                                <div class="summary-info-item"><i class="fa-regular fa-clock"></i> <span><strong>운영 방식:</strong> 매주 수요일 지정 회차별 10명 제한 선착순 예약제</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-user-check"></i> <span><strong>이용 자격:</strong> 만 19세 ~ 39세 구직 청년 (연 1회 제한)</span></div>
+                            </div>
+                            <div class="feature-highlight-box" style="margin-bottom:0; width:max-content; padding:6px 15px;">혜택: 이력서 전용 프로필 촬영 및 1:1 정밀 리터칭 보정 지원</div>
+                        </div>
+                        <a class="detail-link horizontal-action-zone" href="https://youth.gwangju.go.kr/www/50?mapngColumn=policy_id&policyId=1295&svc=&siteId=www&pageIndex=1&srchLocation=&srchPolicyTy=&tabType=&reqstAge=&keyword=%EC%9D%B4%EB%A0%A5%EC%84%9C&searchYear=2026&order=insertDesc&pageUnit=10&url=%2Fwww%2Fpolicy%2FgjYgPolicyView" target="_blank" rel="noopener noreferrer">
+                            상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+
+                    <div class="policy-horizontal-card">
+                        <div class="horizontal-img-slot"><img src="교통정책.png" alt="교통비지원"></div>
+                        <div class="horizontal-info-core">
+                            <div class="horizontal-title-flex"><h3>청년 교통비 지원</h3><span class="always-tag">상시진행</span></div>
+                            <div class="summary-info-list" style="margin-bottom: 10px;">
+                                <div class="summary-info-item"><i class="fa-regular fa-clock"></i> <span><strong>환급 방식:</strong> 대중교통 이용 실적 기반 익월 계좌 자동 페이백</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-id-card"></i> <span><strong>연계 시스템:</strong> 광주 청년 G-패스 및 대중교통 K-패스 통합 연동</span></div>
+                            </div>
+                            <div class="feature-highlight-box" style="margin-bottom:0; width:max-content; padding:6px 15px;">혜택: 대중교통비 30% 환급 + 미취업 청년 추가 10만원권 지급</div>
+                        </div>
+                        <a class="detail-link horizontal-action-zone" href="https://www.gwangju.go.kr/traffic/contentsView.do?pageId=traffic61" target="_blank" rel="noopener noreferrer">
+                            상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sidebar-sticky-area">
+            <div class="calendar-container">
+                <div class="calendar-nav-header">
+                    <span class="calendar-nav-btn" onclick="changeMonth('prev')"><i class="fa-solid fa-chevron-left"></i></span>
+                    <span class="calendar-month-title" id="calendar-title">JUNE 2026</span>
+                    <span class="calendar-nav-btn" onclick="changeMonth('next')"><i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+                
+                <div class="calendar-grid" id="calendar-grid-target"></div>
+
+                <div class="calendar-legend">
+                    <div class="legend-item"><div class="legend-dot" style="background-color:#818CF8;"></div> 모집 일정</div>
+                    <div class="legend-item"><div class="legend-dot" style="background-color:#34D399;"></div> 주요 일정</div>
+                </div>
+
+                <div class="calendar-schedule-list" id="calendar-info-list"></div>
+            </div>
+        </div>
+
+    </div>
+ <div id="archive-anchor" style="padding: 60px; background-color: #E8F5E9;">
+    <h2 style="margin-bottom: 30px; font-weight: 900; color: #1A1A1A;">PAST ARCHIVE : 지난 정책</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
+        
+        <div style="background: #F8F9FA; padding: 30px; border: 2px solid #E0E0E0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <p style="font-size: 12px; color: #757575; font-weight: 700;">취업지원 | 지난 정책</p>
+            <h4 style="font-size: 18px; margin: 10px 0; color: #616161;">[광주청년 자격증 취득지원]</h4>
+            <p style="font-size: 14px; color: #757575; line-height: 1.5;">어학 및 국가기술자격증 시험 응시료를 지원하는 사업입니다. 청년 구직자의 시험 응시 부담을 줄이는 정책으로, 이전 회차 기록을 정리했습니다.</p>
+            <p style="font-size: 12px; color: #9E9E9E; margin-top: 15px;">2026.06.01 ~ 06.30</p>
+        </div>
+
+        <div style="background: #F8F9FA; padding: 30px; border: 2px solid #E0E0E0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <p style="font-size: 12px; color: #757575; font-weight: 700;">청년참여 | 지난 정책</p>
+            <h4 style="font-size: 18px; margin: 10px 0; color: #616161;">[청년정책실험실]</h4>
+            <p style="font-size: 14px; color: #757575; line-height: 1.5;">청년이 직접 정책을 제안하고 프로젝트를 실행하는 정책 설계 워크숍형 사업입니다.</p>
+            <p style="font-size: 12px; color: #9E9E9E; margin-top: 15px;">2026.05.22 ~ 06.07</p>
+        </div>
+
+        <div style="background: #F8F9FA; padding: 30px; border: 2px solid #E0E0E0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <p style="font-size: 12px; color: #757575; font-weight: 700;">진로탐색 | 지난 정책</p>
+            <h4 style="font-size: 18px; margin: 10px 0; color: #616161;">[광주형 청년갭이어]</h4>
+            <p style="font-size: 14px; color: #757575; line-height: 1.5;">진로 탐색이 필요한 청년에게 타 지역 프로젝트 참여와 활동비를 지원하는 사업입니다.</p>
+            <p style="font-size: 12px; color: #9E9E9E; margin-top: 15px;">2026.05.10 ~ 06.07</p>
+        </div>
+    </div>
+</div>
+
+<div style="padding: 10px 60px; background-color: #064E3B; color: white; text-align: left; font-size: 12px; font-weight: 500;">
+    그린라이트 광주 2026 플랫폼
+</div>
+    <div class="portal-overlay" id="lab-portal">
+        <div class="portal-header-box"><h2>청년정책 실험실 상세 안내</h2><span class="close-portal-icon" onclick="closePortal('lab-portal')"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="portal-main-info">
+            <p><strong>모집 상태:</strong> 모집 마감 및 연구 위원 구성 완료</p>
+            <p><strong>프로젝트비:</strong> 팀당 최대 400만원 프로젝트 실행비 전액 지원</p>
+            <p><strong>활동 범위:</strong> 광주 청년 조례 발의안 도출 및 정책 연구 워크숍 참여</p>
+        </div>
+        <button class="btn-portal-back-home" onclick="closePortal('lab-portal')"><i class="fa-solid fa-arrow-left"></i> 메인 홈으로 뒤로가기</button>
+    </div>
+
+    <div class="portal-overlay" id="gapyear-portal">
+        <div class="portal-header-box"><h2>광주형 청년갭이어 상세 안내</h2><span class="close-portal-icon" onclick="closePortal('gapyear-portal')"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="portal-main-info">
+            <p><strong>모집 상태:</strong> 2026.06.07 자정까지 온라인 서류 집중 접수 중</p>
+            <p><strong>활동 수당:</strong> 1인 최대 140만원 (타 지역 미션비 및 진로 설계비 포함)</p>
+            <p><strong>참여 자격:</strong> 주민등록상 광주광역시에 거주하는 만 19세 이상 39세 이하 미취업 구직 청년</p>
+        </div>
+        <button class="btn-portal-back-home" onclick="closePortal('gapyear-portal')"><i class="fa-solid fa-arrow-left"></i> 메인 홈으로 뒤로가기</button>
+    </div>
+
+    <div class="portal-overlay" id="cert-portal">
+        <div class="portal-header-box"><h2>자격증 취득지원 오픈 공지</h2><span class="close-portal-icon" onclick="closePortal('cert-portal')"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="portal-main-info">
+            <p><strong>오픈 일정:</strong> 2026.06.01 오전 09:00 시스템 정식 오픈</p>
+            <p><strong>지원 한도:</strong> 어학 및 국가기술 자격증 시험 응시료 실비 100% 전액 지원</p>
+        </div>
+        <button class="btn-portal-back-home" onclick="closePortal('cert-portal')"><i class="fa-solid fa-arrow-left"></i> 메인 홈으로 뒤로가기</button>
+    </div>
+
+    <div class="portal-overlay" id="closet-portal">
+        <div class="portal-header-box"><h2>면접복장 대여 가이드</h2><span class="close-portal-icon" onclick="closePortal('closet-portal')"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="portal-main-info">
+            <p><strong>대여 장소:</strong> 광주 서구 상무중앙로 34 2층 (광주청년센터 토닥토닥 상무점)</p>
+            <p><strong>운영 시간:</strong> 평일 10:00 ~ 20:30 / 토요일 10:00 ~ 17:30</p>
+        </div>
+        <button class="btn-portal-back-home" onclick="closePortal('closet-portal')"><i class="fa-solid fa-arrow-left"></i> 메인 홈으로 뒤로가기</button>
+    </div>
+
+    <div class="portal-overlay" id="portrait-portal">
+        <div class="portal-header-box"><h2>이력서 촬영 무료 서비스 상세</h2><span class="close-portal-icon" onclick="closePortal('portrait-portal')"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="portal-main-info">
+            <p><strong>지원 내용:</strong> 취업용 이력서 정밀 사진 촬영 및 1:1 보정 지원</p>
+            <p><strong>이용 조건:</strong> 매주 수요일 회차별 10명 제한 선착순 예약제</p>
+        </div>
+        <button class="btn-portal-back-home" onclick="closePortal('portrait-portal')"><i class="fa-solid fa-arrow-left"></i> 메인 홈으로 뒤로가기</button>
+    </div>
+
+
+    <script>
+
+        function showSlidePlaceholder(img, title) {
+            const box = img.parentElement;
+            box.innerHTML = `
+                <div class="slide-placeholder">
+                    <i class="fa-regular fa-image"></i>
+                    <strong>${title}</strong>
+                    <span>같은 폴더에 이미지 파일을 넣으면 이 영역에 자동으로 표시됩니다.</span>
+                </div>`;
+        }
+        let currentSlide = 0;
+        const totalSlides = 5;
+        function updateSlider() {
+            const track = document.getElementById('main-slide-track');
+            const dots = document.querySelectorAll('.dot');
+            track.style.transform = `translateX(-${currentSlide * 20}%)`;
+            dots.forEach((dot, idx) => {
+                if(idx === currentSlide) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        }
+        function goToSlide(index) { currentSlide = index; updateSlider(); }
+        setInterval(() => { currentSlide = (currentSlide + 1) % totalSlides; updateSlider(); }, 4000);
+
+        let currentViewMonth = 6;
+        
+        // 5월 달력 템플릿 (독서클럽 유령 흔적 완전 삭제 가공)
+        const mayTemplate = `
+            <div class="calendar-header" style="color:#EF4444;">sun</div><div class="calendar-header">mon</div><div class="calendar-header">tue</div><div class="calendar-header">wed</div><div class="calendar-header">thu</div><div class="calendar-header">fri</div><div class="calendar-header">sat</div>
+            <div class="calendar-cell empty"></div><div class="calendar-cell empty"></div><div class="calendar-cell empty"></div><div class="calendar-cell empty"></div><div class="calendar-cell empty"></div>
+            <div class="calendar-cell"><span class="day-num">1</span><div class="event-chip gapyear">갭이어</div><div class="event-chip lab">실험실</div></div>
+            <div class="calendar-cell"><span class="day-num">2</span><div class="event-chip gapyear">갭이어</div></div>
+            <div class="calendar-cell"><span class="day-num">3</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">4</span></div><div class="calendar-cell"><span class="day-num">5</span></div><div class="calendar-cell"><span class="day-num">6</span></div><div class="calendar-cell"><span class="day-num">7</span></div><div class="calendar-cell"><span class="day-num">8</span></div><div class="calendar-cell"><span class="day-num">9</span></div><div class="calendar-cell"><span class="day-num">10</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">11</span></div><div class="calendar-cell"><span class="day-num">12</span></div>
+            <div class="calendar-cell"><span class="day-num">13</span><div class="event-chip gapyear">갭이어</div></div>
+            <div class="calendar-cell"><span class="day-num">14</span><div class="event-chip cert">자격증</div></div>
+            <div class="calendar-cell"><span class="day-num">15</span><div class="event-chip lab">실험실</div></div>
+            <div class="calendar-cell"><span class="day-num">16</span></div>
+            <div class="calendar-cell"><span class="day-num">17</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">18</span></div><div class="calendar-cell"><span class="day-num">19</span></div><div class="calendar-cell"><span class="day-num">20</span></div><div class="calendar-cell"><span class="day-num">21</span></div><div class="calendar-cell"><span class="day-num">22</span></div><div class="calendar-cell"><span class="day-num">23</span></div>
+            <div class="calendar-cell"><span class="day-num">24</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">25</span></div><div class="calendar-cell"><span class="day-num">26</span></div>
+            <div class="calendar-cell"><span class="day-num">27</span><div class="event-chip gapyear">심사</div></div>
+            <div class="calendar-cell"><span class="day-num">28</span></div><div class="calendar-cell"><span class="day-num">29</span></div><div class="calendar-cell"><span class="day-num">30</span></div>
+            <div class="calendar-cell"><span class="day-num">31</span><div class="event-chip alert">실험마감</div></div>
+        `;
+        
+        // 5월 텍스트 리스트 피드 (불릿 인라인 매칭 및 독서포럼 완전 멸균 처리)
+        const mayInfo = `
+            <span class="schedule-group-title">다가오는 일정</span>
+            <div class="schedule-item"><span class="schedule-date">05.31</span><div class="schedule-bullet-dot blue"></div><span class="schedule-text">청년정책실험실 최종 마감</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.01</span><div class="schedule-bullet-dot green"></div><span class="schedule-text">광주 청년 자격증 취득지원 오픈</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.07</span><div class="schedule-bullet-dot blue"></div><span class="schedule-text">광주형 청년갭이어 집중모집 마감</span></div>
+        `;
+
+        const juneTemplate = `
+            <div class="calendar-header" style="color:#EF4444;">sun</div><div class="calendar-header">mon</div><div class="calendar-header">tue</div><div class="calendar-header">wed</div><div class="calendar-header">thu</div><div class="calendar-header">fri</div><div class="calendar-header">sat</div>
+            <div class="calendar-cell empty"></div>
+            <div class="calendar-cell"><span class="day-num">1</span><div class="event-chip work">드림터</div></div>
+            <div class="calendar-cell"><span class="day-num">2</span></div>
+            <div class="calendar-cell"><span class="day-num">3</span></div>
+            <div class="calendar-cell"><span class="day-num">4</span></div>
+            <div class="calendar-cell"><span class="day-num">5</span></div>
+            <div class="calendar-cell"><span class="day-num">6</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">7</span></div>
+            <div class="calendar-cell"><span class="day-num">8</span><div class="event-chip supporter">서포터즈</div></div>
+            <div class="calendar-cell"><span class="day-num">9</span></div>
+            <div class="calendar-cell"><span class="day-num">10</span></div>
+            <div class="calendar-cell"><span class="day-num">11</span></div>
+            <div class="calendar-cell"><span class="day-num">12</span></div>
+            <div class="calendar-cell"><span class="day-num">13</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">14</span></div>
+            <div class="calendar-cell"><span class="day-num">15</span><div class="event-chip forum">인문접수</div></div>
+            <div class="calendar-cell"><span class="day-num">16</span></div>
+            <div class="calendar-cell"><span class="day-num">17</span><div class="event-chip supporter">접수마감</div></div>
+            <div class="calendar-cell"><span class="day-num">18</span></div>
+            <div class="calendar-cell"><span class="day-num">19</span></div>
+            <div class="calendar-cell"><span class="day-num">20</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">21</span></div>
+            <div class="calendar-cell"><span class="day-num">22</span></div>
+            <div class="calendar-cell"><span class="day-num">23</span></div>
+            <div class="calendar-cell"><span class="day-num">24</span></div>
+            <div class="calendar-cell"><span class="day-num">25</span></div>
+            <div class="calendar-cell"><span class="day-num">26</span></div>
+            <div class="calendar-cell"><span class="day-num">27</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">28</span></div>
+            <div class="calendar-cell"><span class="day-num">29</span><div class="event-chip forum">포럼시작</div><div class="event-chip work">드림청년</div></div>
+            <div class="calendar-cell"><span class="day-num">30</span></div>
+            <div class="calendar-cell empty"></div><div class="calendar-cell empty"></div><div class="calendar-cell empty"></div><div class="calendar-cell empty"></div>
+        `;
+        const juneInfo = `
+            <span class="schedule-group-title">6월 주요 일정</span>
+            <div class="schedule-item"><span class="schedule-date">06.08</span><div class="schedule-bullet-dot green"></div><span class="schedule-text">청년정책 서포터즈 2기 모집 시작</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.15</span><div class="schedule-bullet-dot green"></div><span class="schedule-text">2026 인문 독서포럼 접수 시작</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.17</span><div class="schedule-bullet-dot blue"></div><span class="schedule-text">일경험드림 드림터·청년정책 서포터즈 접수 마감</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.12</span><div class="schedule-bullet-dot blue"></div><span class="schedule-text">창업 아이디어 공모 및 지원 신청 마감</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.29</span><div class="schedule-bullet-dot green"></div><span class="schedule-text">인문 독서포럼 운영 시작·일경험드림 드림청년 모집 시작</span></div>
+        `;
+
+        function renderCalendar() {
+            const grid = document.getElementById('calendar-grid-target');
+            const title = document.getElementById('calendar-title');
+            const info = document.getElementById('calendar-info-list');
+            if(currentViewMonth === 5) { title.innerText = "MAY 2026"; grid.innerHTML = mayTemplate; info.innerHTML = mayInfo; }
+            else { title.innerText = "JUNE 2026"; grid.innerHTML = juneTemplate; info.innerHTML = juneInfo; }
+        }
+        function changeMonth(direction) {
+            if(direction === 'next' && currentViewMonth === 5) currentViewMonth = 6;
+            else if(direction === 'prev' && currentViewMonth === 6) currentViewMonth = 5;
+            renderCalendar();
+        }
+
+        window.onload = function() { renderCalendar(); };
+        function openPortal(id) { document.getElementById(id).style.display = 'block'; document.body.style.overflow = 'hidden'; }
+        function closePortal(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = ''; }
+    </script>
+
+</body>
+</html>
