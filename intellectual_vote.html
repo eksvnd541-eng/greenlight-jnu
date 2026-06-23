@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>지적 설계 투표</title>
+  <style>
+    :root{
+      --ink:#202020;
+      --text:#5d5d5d;
+      --muted:#a3a3a3;
+      --line:#dedbd6;
+      --beige:#c6a98f;
+      --soft:#faf9f7;
+      --bg:#fbfaf7;
+      --paper:#fff;
+    }
+
+    *{box-sizing:border-box;}
+
+    body{
+      margin:0;
+      font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      letter-spacing:-0.02em;
+    }
+
+    .page{
+      display:none;
+      min-height:100vh;
+    }
+
+    .page.active{
+      display:block;
+    }
+
+    .landing{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:70px 8vw;
+      background:#fbfaf7;
+    }
+
+    .landing-inner{
+      max-width:900px;
+    }
+
+    .landing-label{
+      color:#989898;
+      font-size:24px;
+      letter-spacing:.35em;
+      font-weight:500;
+      margin-bottom:70px;
+    }
+
+    .count{
+      display:flex;
+      align-items:baseline;
+      gap:22px;
+      margin-bottom:84px;
+      color:#999;
+      font-size:27px;
+      font-weight:500;
+    }
+
+    .count b{
+      font-size:76px;
+      line-height:1;
+      color:#161616;
+      font-family:"Georgia","Times New Roman",serif;
+      font-weight:500;
+      letter-spacing:-.04em;
+    }
+
+    .landing h1{
+      margin:0 0 34px;
+      font-family:"Nanum Myeongjo","Noto Serif KR",serif;
+      font-size:54px;
+      line-height:1.42;
+      font-weight:900;
+      letter-spacing:-.05em;
+    }
+
+    .landing-copy{
+      color:#9a9a9a;
+      font-size:30px;
+      line-height:1.9;
+      font-family:"Nanum Myeongjo","Noto Serif KR",serif;
+      margin:0 0 78px;
+    }
+
+    .start-btn{
+      width:560px;
+      max-width:100%;
+      height:112px;
+      border:2px solid #333;
+      background:transparent;
+      color:#333;
+      font-size:25px;
+      font-weight:700;
+      letter-spacing:.35em;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    .start-btn:hover{
+      background:#222;
+      color:#fff;
+    }
+
+    .start-btn span{
+      letter-spacing:0;
+      margin-left:34px;
+    }
+
+    .wrap{
+      max-width:1180px;
+      margin:0 auto;
+      padding:68px 34px 80px;
+      background:#fff;
+    }
+
+    .intro-label{
+      color:var(--beige);
+      font-size:15px;
+      font-weight:700;
+      letter-spacing:.36em;
+      margin-bottom:46px;
+    }
+
+    .intro h1{
+      margin:0;
+      font-family:"Songti SC","Nanum Myeongjo","Noto Serif KR",serif;
+      font-size:44px;
+      line-height:1.35;
+      font-weight:900;
+      letter-spacing:-0.05em;
+    }
+
+    .quote{
+      margin:54px 0 58px;
+      padding:8px 0 8px 42px;
+      border-left:3px solid var(--beige);
+      color:#4b4b4b;
+    }
+
+    .quote p{
+      margin:0 0 18px;
+      font-size:25px;
+      line-height:1.7;
+      font-style:italic;
+      font-family:"Nanum Myeongjo","Noto Serif KR",serif;
+    }
+
+    .quote small{
+      color:var(--beige);
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:.13em;
+    }
+
+    .lead{
+      max-width:980px;
+      color:#5d5d5d;
+      font-size:22px;
+      line-height:1.9;
+      font-weight:500;
+      margin-bottom:64px;
+    }
+
+    .notice{
+      max-width:930px;
+      color:#9b9b9b;
+      font-size:17px;
+      line-height:1.8;
+      margin-bottom:56px;
+    }
+
+    .concept-list{
+      max-width:980px;
+      border-left:1px solid #e8e3de;
+      padding-left:38px;
+      margin-bottom:92px;
+    }
+
+    .concept{
+      margin:0 0 30px;
+    }
+
+    .concept dt{
+      color:var(--beige);
+      font-size:15px;
+      font-weight:900;
+      letter-spacing:.38em;
+      margin-bottom:10px;
+    }
+
+    .concept dd{
+      margin:0;
+      color:#5b5b5b;
+      font-size:21px;
+      line-height:1.65;
+      font-weight:500;
+    }
+
+    .question{
+      margin:0 0 78px;
+    }
+
+    .q-num{
+      color:#a7a7a7;
+      font-size:21px;
+      font-weight:500;
+      letter-spacing:.34em;
+      margin-bottom:14px;
+    }
+
+    .q-title{
+      font-family:"Nanum Myeongjo","Noto Serif KR",serif;
+      margin:0;
+      font-size:28px;
+      line-height:1.45;
+      font-weight:900;
+      letter-spacing:-.04em;
+    }
+
+    .q-type{
+      color:#9b9b9b;
+      font-size:17px;
+      margin:10px 0 34px;
+    }
+
+    .cards{
+      display:grid;
+      gap:20px;
+    }
+
+    .cards.four{
+      grid-template-columns:repeat(4, minmax(0,1fr));
+    }
+
+    .cards.inline{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    label.choice{
+      border:2px solid var(--line);
+      background:#fff;
+      min-height:118px;
+      padding:30px 30px 24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      cursor:pointer;
+      transition:.15s ease;
+      position:relative;
+    }
+
+    label.choice:hover{
+      border-color:#bfb5aa;
+      background:var(--soft);
+      transform:translateY(-2px);
+    }
+
+    label.choice input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+
+    label.choice:has(input:checked){
+      border-color:#2b2b2b;
+      background:#fbfaf8;
+      box-shadow:inset 0 0 0 1px #2b2b2b;
+    }
+
+    .latin{
+      font-size:17px;
+      letter-spacing:.18em;
+      color:#454545;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .kor{
+      font-family:"Nanum Myeongjo","Noto Serif KR",serif;
+      font-size:27px;
+      font-weight:900;
+      color:#1e1e1e;
+    }
+
+    label.pill{
+      border:2px solid var(--line);
+      background:#fff;
+      min-width:145px;
+      min-height:62px;
+      padding:15px 25px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:#565656;
+      font-size:21px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.15s ease;
+      position:relative;
+    }
+
+    label.pill input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+
+    label.pill:hover{
+      border-color:#bfb5aa;
+      background:var(--soft);
+    }
+
+    label.pill:has(input:checked){
+      border-color:#202020;
+      color:#202020;
+      background:#fbfaf8;
+      box-shadow:inset 0 0 0 1px #202020;
+    }
+
+    textarea{
+      width:100%;
+      min-height:248px;
+      border:2px solid var(--line);
+      padding:28px;
+      font:inherit;
+      font-size:22px;
+      color:#333;
+      resize:vertical;
+      outline:none;
+      background:#fff;
+    }
+
+    textarea::placeholder{
+      color:#aaa;
+    }
+
+    textarea:focus{
+      border-color:#202020;
+    }
+
+    .submit-wrap{
+      margin-top:42px;
+    }
+
+    .vote-btn{
+      width:100%;
+      height:98px;
+      border:2px solid #202020;
+      background:#fff;
+      color:#333;
+      font-size:24px;
+      font-weight:900;
+      letter-spacing:.22em;
+      cursor:pointer;
+      transition:.15s ease;
+    }
+
+    .vote-btn:hover{
+      background:#202020;
+      color:#fff;
+    }
+
+    footer{
+      color:#aaa;
+      font-size:14px;
+      margin-top:40px;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      border-top:1px solid #eee;
+      padding-top:22px;
+    }
+
+    .complete{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(251,250,247,.92);
+      z-index:20;
+      padding:28px;
+    }
+
+    .complete.show{
+      display:flex;
+    }
+
+    .complete-box{
+      width:min(560px, 100%);
+      background:#fff;
+      border:2px solid #222;
+      padding:70px 38px;
+      text-align:center;
+      box-shadow:0 30px 80px rgba(0,0,0,.08);
+    }
+
+    .complete-box h2{
+      margin:0 0 18px;
+      font-family:"Nanum Myeongjo","Noto Serif KR",serif;
+      font-size:34px;
+      letter-spacing:-.04em;
+    }
+
+    .complete-box p{
+      margin:0 0 34px;
+      color:#888;
+      font-size:18px;
+      line-height:1.7;
+    }
+
+    .close-btn{
+      border:1px solid #222;
+      background:#222;
+      color:#fff;
+      padding:16px 36px;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    @media (max-width:900px){
+      .landing{padding:54px 28px;}
+      .landing-label{font-size:18px; margin-bottom:54px;}
+      .count{font-size:22px; margin-bottom:58px;}
+      .count b{font-size:62px;}
+      .landing h1{font-size:40px;}
+      .landing-copy{font-size:24px;}
+      .cards.four{grid-template-columns:repeat(2, minmax(0,1fr));}
+      .wrap{padding:44px 22px 60px;}
+      .intro h1{font-size:34px;}
+      .lead{font-size:19px;}
+      .quote p{font-size:21px;}
+    }
+
+    @media (max-width:560px){
+      .landing h1{font-size:32px;}
+      .landing-copy{font-size:20px;}
+      .start-btn{height:86px; font-size:18px;}
+      .cards.four{grid-template-columns:1fr;}
+      .q-title{font-size:24px;}
+      label.pill{width:100%;}
+      footer{flex-direction:column;}
+    }
+  
+    .back-home-link{position:fixed;top:18px;left:18px;z-index:30;text-decoration:none;color:#333;background:rgba(255,255,255,.92);border:1px solid #dedbd6;padding:10px 14px;font-size:14px;font-weight:800;backdrop-filter:blur(8px);}
+    @media(max-width:560px){.back-home-link{top:10px;left:10px;padding:8px 10px;font-size:12px;}}
+  </style>
+
+  <style id="compact-scale-overrides">
+    /* 투표 페이지 전체 비율 축소: 데스크톱 기준 약 88~92% 체감 */
+    .landing{padding:52px 7vw;}
+    .landing-inner{max-width:760px;}
+    .landing-label{font-size:18px; margin-bottom:48px;}
+    .count{gap:16px; margin-bottom:56px; font-size:21px;}
+    .count b{font-size:60px;}
+    .landing h1{font-size:43px; line-height:1.38; margin-bottom:26px;}
+    .landing-copy{font-size:23px; line-height:1.75; margin-bottom:54px;}
+    .start-btn{width:470px; height:86px; font-size:20px;}
+
+    .wrap{max-width:1040px; padding:54px 30px 68px;}
+    .intro-label{font-size:13px; margin-bottom:34px;}
+    .intro h1{font-size:36px;}
+    .quote{margin:42px 0 46px; padding-left:32px;}
+    .quote p{font-size:21px;}
+    .lead{font-size:18px; line-height:1.8; margin-bottom:50px;}
+    .notice{font-size:15px; margin-bottom:44px;}
+    .concept-list{padding-left:30px; margin-bottom:70px;}
+    .concept dt{font-size:13px;}
+    .concept dd{font-size:18px;}
+
+    .question{margin-bottom:60px;}
+    .q-num{font-size:17px;}
+    .q-title{font-size:24px;}
+    .q-type{font-size:15px; margin-bottom:26px;}
+    .cards{gap:16px;}
+    label.choice{min-height:96px; padding:23px 24px 20px;}
+    .latin{font-size:14px; margin-bottom:10px;}
+    .kor{font-size:23px;}
+    label.pill{min-width:126px; min-height:54px; padding:12px 20px; font-size:18px;}
+    textarea{min-height:200px; padding:22px; font-size:18px;}
+    .vote-btn{height:80px; font-size:20px;}
+    footer{font-size:12px;}
+    .complete-box{width:min(500px,100%); padding:54px 32px;}
+    .complete-box h2{font-size:29px;}
+    .complete-box p{font-size:16px;}
+
+    @media (max-width:900px){
+      .landing{padding:44px 24px;}
+      .landing-inner{max-width:680px;}
+      .landing-label{font-size:16px; margin-bottom:42px;}
+      .count{font-size:19px; margin-bottom:44px;}
+      .count b{font-size:52px;}
+      .landing h1{font-size:35px;}
+      .landing-copy{font-size:20px; margin-bottom:44px;}
+      .start-btn{height:76px; font-size:17px;}
+      .wrap{padding:38px 20px 52px;}
+      .intro h1{font-size:30px;}
+      .lead{font-size:17px;}
+      .quote p{font-size:18px;}
+    }
+
+    @media (max-width:560px){
+      .landing{padding:38px 20px;}
+      .landing-label{font-size:14px; margin-bottom:34px;}
+      .count{gap:10px; margin-bottom:38px; font-size:16px;}
+      .count b{font-size:44px;}
+      .landing h1{font-size:29px;}
+      .landing-copy{font-size:17px;}
+      .start-btn{height:68px; font-size:15px; letter-spacing:.22em;}
+      .intro h1{font-size:27px;}
+      .q-title{font-size:21px;}
+      .kor{font-size:21px;}
+      label.pill{font-size:16px;}
+      .vote-btn{height:70px; font-size:18px;}
+    }
+  </style>
+</head>
+<body>
+  <a class="back-home-link" href="index_forum_with_vote_nav.html">← 인문포럼으로 돌아가기</a>
+  <section id="landingPage" class="page active">
+    <div class="landing">
+      <div class="landing-inner">
+        <div class="landing-label">지적 설계 투표</div>
+
+        <div class="count">
+          <b id="voteCount">156</b>
+          <span>명이 사유의 지도를 그리고 있습니다.</span>
+        </div>
+
+        <h1>우리는 보이지 않는 사유의 지도를 함께 그립니다.</h1>
+
+        <p class="landing-copy">
+          아래 버튼을 눌러 당신만의 사유 공간으로 입장하여<br />
+          인류 문명을 지탱해 온 단 하나의 기둥을 선택해 주세요.
+        </p>
+
+        <button class="start-btn" type="button" onclick="goSurvey()">
+          사유의 설계 참여하기 <span>→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="surveyPage" class="page">
+    <main class="wrap">
+      <section class="intro">
+        <div class="intro-label">인문의 아키처를 형성한 네 개의 기둥</div>
+
+        <h1>왜 헤르만 헤세이며,<br />왜 이 네 가지 고전인가?</h1>
+
+        <div class="quote">
+          <p>“책은 고요히 음미되어야 비로소 내면의 힘을 얻다.”</p>
+          <small>— 헤르만 헤세, 『헤르만 헤세의 책이라는 세계』 중</small>
+        </div>
+
+        <p class="lead">
+          대문호 헤르만 헤세가 자아 성장의 기틀로 삼았던 동양의 ‘논어’와 ‘도덕경’,
+          그리고 수많은 세계 문학의 상징적 뼈대가 된 ‘성경’과 마음의 과학인 ‘불경’은
+          인류 사유의 정수입니다. 우리는 헤세가 증명했듯, 수박 겉핥기식의 독서를 거부하고
+          단 한 권의 본질 속에 침잠하여 우리의 뇌를 물리적으로 재구조화하고자 합니다.
+        </p>
+
+        <p class="notice">
+          이곳은 이름과 연락처를 요구하지 않는 100% 익명 공간입니다.
+          당신의 솔직한 시선으로 프레임의 지도를 그려주세요.
+        </p>
+
+        <dl class="concept-list">
+          <div class="concept">
+            <dt>성경 — LOGOS</dt>
+            <dd>인간의 고통과 구원, 보편적 가치를 다루며 세계 문학의 기반이 된 서구 사상의 뿌리.</dd>
+          </div>
+          <div class="concept">
+            <dt>논어 — ETHOS</dt>
+            <dd>헤세가 평생 곁에 두었던 관계의 미학. 나를 세우고 타인과 공존하는 인문주의의 정수.</dd>
+          </div>
+          <div class="concept">
+            <dt>불경 — PATHOS</dt>
+            <dd>내면의 번뇌를 직시하고 본래의 고요한 평온을 찾아가는 정교한 마음 과학.</dd>
+          </div>
+          <div class="concept">
+            <dt>도덕경 — PHYSIS</dt>
+            <dd>인위를 벗어나 자연의 거대한 흐름에 몸을 맡기는 비움과 채움의 철학.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <form id="voteForm">
+        <section class="question">
+          <div class="q-num">Q 01</div>
+          <h2 class="q-title">10개월의 여정을 함께할 고전을 선택해주세요.</h2>
+          <div class="q-type">단일 선택</div>
+
+          <div class="cards four">
+            <label class="choice">
+              <input type="radio" name="classic" value="logos">
+              <span class="latin">LOGOS</span>
+              <span class="kor">성경</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="classic" value="ethos">
+              <span class="latin">ETHOS</span>
+              <span class="kor">논어</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="classic" value="pathos">
+              <span class="latin">PATHOS</span>
+              <span class="kor">불경</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="classic" value="physis">
+              <span class="latin">PHYSIS</span>
+              <span class="kor">도덕경</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="question">
+          <div class="q-num">Q 02</div>
+          <h2 class="q-title">지금 당신의 내면이 가장 갈구하는 키워드는 무엇인가요?</h2>
+          <div class="q-type">중복 선택 가능</div>
+
+          <div class="cards inline">
+            <label class="pill"><input type="checkbox" name="keyword" value="career">진로와 일</label>
+            <label class="pill"><input type="checkbox" name="keyword" value="relation">관계와 소통</label>
+            <label class="pill"><input type="checkbox" name="keyword" value="identity">자기 정체성</label>
+            <label class="pill"><input type="checkbox" name="keyword" value="meaning">삶의 의미</label>
+            <label class="pill"><input type="checkbox" name="keyword" value="peace">마음의 평화</label>
+            <label class="pill"><input type="checkbox" name="keyword" value="growth">성장과 도전</label>
+            <label class="pill"><input type="checkbox" name="keyword" value="rest">휴식과 회복</label>
+            <label class="pill"><input type="checkbox" name="keyword" value="era">시대의 이해</label>
+          </div>
+        </section>
+
+        <section class="question">
+          <div class="q-num">Q 03</div>
+          <h2 class="q-title">평소 고전이나 인문학을 대할 때 어떤 마음이셨나요?</h2>
+          <div class="q-type">단일 선택</div>
+
+          <div class="cards four">
+            <label class="pill"><input type="radio" name="attitude" value="low">처음이라 낯설음</label>
+            <label class="pill"><input type="radio" name="attitude" value="sometimes">가끔 찾아 읽음</label>
+            <label class="pill"><input type="radio" name="attitude" value="interest">관심 분야 중 하나</label>
+            <label class="pill"><input type="radio" name="attitude" value="deep">깊은 몰입과 애정</label>
+          </div>
+        </section>
+
+        <section class="question">
+          <div class="q-num">Q 04</div>
+          <h2 class="q-title">이 여정을 통해 내면의 지면(Ground)에 어떤 변화를 남기고 싶으신가요?</h2>
+          <div class="q-type">자유 서술</div>
+          <textarea name="ground" placeholder="자유롭게 작성해주세요."></textarea>
+        </section>
+
+        <div class="submit-wrap">
+          <button class="vote-btn" type="submit">투표하기</button>
+        </div>
+      </form>
+
+      <footer>
+        <span>Compose Academy · 고전 인문 여정</span>
+        <span>Anonymous Survey · 2026</span>
+      </footer>
+    </main>
+  </section>
+
+  <div id="completeModal" class="complete" role="dialog" aria-modal="true">
+    <div class="complete-box">
+      <h2>투표가 완료되었습니다.</h2>
+      <p>당신의 사유가 하나의 지도로 기록되었습니다.<br />참여해주셔서 감사합니다.</p>
+      <button class="close-btn" type="button" onclick="closeComplete()">확인</button>
+    </div>
+  </div>
+
+  <script>
+    function goSurvey(){
+      document.getElementById("landingPage").classList.remove("active");
+      document.getElementById("surveyPage").classList.add("active");
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
+    document.getElementById("voteForm").addEventListener("submit", function(event){
+      event.preventDefault();
+
+      const current = Number(document.getElementById("voteCount").textContent || 156);
+      document.getElementById("voteCount").textContent = current + 1;
+
+      document.getElementById("completeModal").classList.add("show");
+    });
+
+    function closeComplete(){
+      document.getElementById("completeModal").classList.remove("show");
+    }
+  </script>
+</body>
+</html>

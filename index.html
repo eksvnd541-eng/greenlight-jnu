@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta name="description" content="6월 모집 정책부터 상시 지원, 마감 정책까지 한눈에 확인하는 광주 청년 정책 큐레이션 플랫폼입니다.">
+    <meta name="google-site-verification" content="3nWDdSb0n0dagEFweMcBgYWEsFABxpkrYPBL-wWDskM" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="그린라이트 광주 2026 | 광주 청년 정책 플랫폼">
+    <meta property="og:description" content="광주 청년 정책 큐레이션! 6월 신규 모집 정책과 마감 정책을 한눈에 확인하세요.">
+<meta property="og:image" content="greenlight.jpeg"> <meta property="og:url" content="https://www.greenlight-gwangju.co.kr">
+    <meta name="naver-site-verification" content="e08a2244309ce4a61f1e4d2a29f9054541a05c05" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그린라이트 광주 2026 | 광주 청년 정책 플랫폼</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-main: #F7FBF8;
+            --forest-green: #064E3B;
+            --green: #10B981;
+            --green-dark: #047857;
+            --mint-light: #F1F8F5;
+            --charcoal: #111827;
+            --gray-text: #6B7280;
+            --white: #FFFFFF;
+
+            --chip-gapyear: #E8F5E9; 
+            --chip-gapyear-txt: #2E7D32;
+            --chip-lab: #E0F2F1; 
+            --chip-lab-txt: #00796B;
+            --chip-cert: #E3F2FD; 
+            --chip-cert-txt: #1565C0;
+            --chip-alert: #FFEBEE; 
+            --chip-alert-txt: #C62828;
+            --chip-work: #F3E8FF;
+            --chip-work-txt: #7E22CE;
+            --chip-supporter: #FEF3C7;
+            --chip-supporter-txt: #B45309;
+            --chip-closed: #F3F4F6;
+            --chip-closed-txt: #6B7280;
+            --chip-forum: #ECFDF5;
+            --chip-forum-txt: #047857;
+            --chip-startup: #E0F2FE;
+            --chip-startup-txt: #0369A1;
+        }
+
+        * { box-sizing: border-box; font-family: 'Inter', 'Noto Sans KR', sans-serif; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-main); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
+
+        /* 📌 상단 고정 네비게이션 바 */
+        .nav-bar {
+            position: sticky; top: 0; width: 100%; background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #DDEFE2; display: flex;
+            justify-content: space-between; align-items: center; padding: 12px 60px; z-index: 100;
+        }
+        .logo-wrapper { display: flex; align-items: center; cursor: pointer; }
+        .logo-img { height: 38px; width: auto; object-fit: contain; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--charcoal); font-size: 14px; font-weight: 700; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--green-dark); }
+        .btn-top-apply { padding: 9px 20px; background-color: var(--green-dark); color: var(--white); border: none; font-size: 13px; font-weight: 800; cursor: pointer; border-radius: 10px; }
+
+        /* 🌿 메인 히어로: 여백형 카드 레이아웃 */
+        .hero-container {
+            width: min(1440px, calc(100% - 80px));
+            margin: 38px auto 42px;
+            padding: 54px 44px 58px;
+            display: grid;
+            grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+            gap: 56px;
+            align-items: center;
+            background: #FFFFFF;
+            border: 1px solid #E5EFE8;
+            border-radius: 34px;
+            box-shadow: 0 24px 80px rgba(15, 23, 42, 0.06);
+            overflow: visible;
+        }
+
+        .hero-left { padding: 6px 0 0 2px; text-align: left; }
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 18px; background: #ECFDF5; color: var(--green-dark);
+            font-size: 13px; font-weight: 900; border-radius: 999px;
+            width: max-content; margin-bottom: 24px; border: 1px solid #B7E4CF;
+        }
+        .hero-tag::before {
+            content: ""; width: 7px; height: 7px; background: var(--green);
+            border-radius: 50%; display: inline-block;
+        }
+        .hero-left h1 {
+            font-size: clamp(40px, 4.2vw, 66px);
+            font-weight: 900; color: #0F172A; line-height: 1.16;
+            margin-bottom: 24px; letter-spacing: -0.06em;
+        }
+        .hero-left h1 span { color: var(--green); border-bottom: 5px solid rgba(16, 185, 129, 0.22); }
+        .hero-left p.desc {
+            font-size: 18px; color: var(--gray-text); max-width: 560px;
+            margin-bottom: 32px; line-height: 1.75; word-break: keep-all;
+        }
+        .hero-button-row { display: flex; align-items: center; gap: 14px; margin-bottom: 38px; flex-wrap: wrap; }
+        .btn-hero-green {
+            padding: 15px 26px; background: var(--green); color: var(--white); border: none;
+            font-size: 16px; font-weight: 900; cursor: pointer; border-radius: 15px;
+            display: inline-flex; align-items: center; gap: 10px; width: max-content;
+            box-shadow: 0 16px 30px rgba(16, 185, 129, 0.24);
+        }
+        .btn-hero-outline {
+            padding: 14px 24px; background: #FFFFFF; color: #374151; border: 1px solid #E5E7EB;
+            font-size: 16px; font-weight: 900; cursor: pointer; border-radius: 15px;
+            display: inline-flex; align-items: center; gap: 8px; width: max-content;
+        }
+        .hero-stats-row { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+        .hero-stat-item { display: flex; align-items: center; gap: 12px; min-width: 132px; }
+        .hero-stat-icon {
+            width: 36px; height: 36px; border-radius: 13px; background: #ECFDF5; color: var(--green);
+            display: flex; align-items: center; justify-content: center; font-size: 15px; flex: 0 0 auto;
+        }
+        .hero-stat-text strong { display: block; font-size: 21px; color: #111827; font-weight: 900; line-height: 1.1; }
+        .hero-stat-text span { display: block; font-size: 13px; color: #9CA3AF; font-weight: 800; margin-top: 4px; }
+
+        .hero-right-slider {
+            position: relative; width: 100%; max-width: 760px; height: 430px;
+            justify-self: end; overflow: hidden; border-radius: 30px;
+            background: linear-gradient(135deg, #F8FAFC 0%, #EEF7F1 100%);
+            box-shadow: 0 24px 65px rgba(15, 23, 42, 0.10);
+        }
+        .slide-track {
+            display: flex; width: 500%; height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .slide-view {
+            width: 20%; height: 100%; position: relative;
+            display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 28px;
+            align-items: center; padding: 54px 50px 52px; overflow: hidden;
+        }
+        .slide-img-bg {
+            position: relative;
+            width: 100%; height: 100%; min-height: 292px;
+            background: rgba(255,255,255,0.72);
+            border: 1px solid rgba(183, 228, 207, 0.55);
+            border-radius: 28px;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; z-index: 1; padding: 18px;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.07);
+        }
+        .slide-img-bg img {
+            width: 100%; height: 100%; object-fit: contain; object-position: center center;
+            border-radius: 18px;
+            filter: drop-shadow(0 16px 28px rgba(15, 23, 42, 0.10));
+        }
+        .slide-placeholder {
+            width: 100%; min-height: 220px;
+            border: 2px dashed #B7E4CF; border-radius: 24px;
+            background: rgba(255,255,255,0.78);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 12px; color: #047857; text-align: center; padding: 26px;
+        }
+        .slide-placeholder i { font-size: 34px; opacity: 0.85; }
+        .slide-placeholder strong { font-size: 22px; font-weight: 900; line-height: 1.25; word-break: keep-all; }
+        .slide-placeholder span { font-size: 13px; font-weight: 800; color: #6B7280; line-height: 1.45; word-break: keep-all; }
+        .slide-info-overlay {
+            position: relative; z-index: 2;
+            width: 100%; min-height: 210px;
+            margin: 0;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(8px);
+            padding: 28px 30px;
+            border-radius: 26px;
+            border-left: 7px solid var(--green-dark);
+            text-align: left;
+            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.10);
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .slide-info-overlay .slide-badge {
+            display: inline-block;
+            padding: 4px 9px;
+            font-size: 11px;
+            font-weight: 900;
+            border-radius: 8px;
+            margin-bottom: 7px;
+        }
+        .slide-info-overlay .slide-badge.active { background: #ECFDF5; color: var(--green-dark); }
+        .slide-info-overlay .slide-badge.always { background: #E0F2FE; color: #0369A1; }
+        .slide-info-overlay h2 {
+            font-size: 24px;
+            font-weight: 900;
+            color: #111827;
+            line-height: 1.32;
+            word-break: keep-all;
+            letter-spacing: -0.04em;
+        }
+        .slider-dots {
+            position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+            z-index: 10; display: flex; gap: 8px; padding: 8px 12px;
+            background: rgba(255,255,255,0.7); border-radius: 999px; backdrop-filter: blur(6px);
+        }
+        .dot { width: 9px; height: 9px; background: #D1D5DB; border-radius: 50%; cursor: pointer; transition: all 0.3s; }
+        .dot.active { background: var(--green); width: 28px; border-radius: 999px; }
+
+        .hero-floating-count {
+            position: absolute; top: 18px; left: 22px; z-index: 30;
+            width: auto; min-height: auto; background: #FFFFFF; border-radius: 999px;
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.10);
+            display: flex; flex-direction: row; align-items: center; gap: 9px;
+            padding: 9px 16px 9px 13px;
+            border: 1px solid rgba(183, 228, 207, 0.75);
+        }
+        .hero-floating-count strong { font-size: 22px; color: var(--green); font-weight: 900; line-height: 1; }
+        .hero-floating-count span { font-size: 12px; color: #6B7280; font-weight: 900; line-height: 1.2; margin-top: 0; word-break: keep-all; letter-spacing: -0.03em; }
+        .hero-floating-status {
+            position: absolute; right: 20px; top: 20px; z-index: 30;
+            background: var(--green); color: #FFFFFF; border-radius: 16px; padding: 13px 17px;
+            box-shadow: 0 14px 30px rgba(16,185,129,0.22);
+        }
+        .hero-floating-status span { display: block; font-size: 11px; font-weight: 800; opacity: 0.9; }
+        .hero-floating-status strong { display: block; font-size: 17px; font-weight: 900; margin-top: 2px; }
+        .hero-floating-status small { display: block; font-size: 10px; opacity: 0.9; margin-top: 1px; }
+
+        /* 👑 메인 스플릿 레이아웃 시스템 */
+        .main-split-wrapper { display: grid; grid-template-columns: 1fr 360px; gap: 40px; max-width: 1500px; margin: 0 auto; padding: 20px 60px 50px; align-items: start; }
+        .content-scroll-area { display: flex; flex-direction: column; gap: 60px; min-width: 0; }
+        .content-block-title { font-size: 24px; color: var(--forest-green); margin-bottom: 25px; font-weight: 800; border-bottom: 2px solid var(--forest-green); padding-bottom: 10px; }
+        .sidebar-sticky-area { position: sticky; top: 100px; z-index: 50; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .always-horizontal-container { display: flex; flex-direction: column; gap: 25px; }
+
+        /* 🟩 정책 카드 */
+        .policy-card { background: var(--white); padding: 30px; border: 1px solid #C8E6C9; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: all 0.3s ease; cursor: default; display: flex; flex-direction: column; justify-content: space-between; position: relative; padding-bottom: 70px; border-radius: 18px; overflow: hidden; }
+        .policy-card:hover { transform: translateY(-5px); border-color: var(--forest-green); box-shadow: 0 12px 25px rgba(6, 78, 59, 0.1); }
+        .policy-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px; gap: 14px; }
+        .policy-header h3 { font-size: 20px; font-weight: 800; color: var(--forest-green); }
+        .policy-header .tag { padding: 4px 10px; background: var(--mint-light); color: var(--forest-green); font-size: 11px; font-weight: 800; border-radius: 999px; white-space: nowrap; }
+        .policy-img-slot { width: 100%; height: 200px; background-color: #E2E8F0; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: #888; font-size: 13px; overflow: hidden; border-radius: 12px; }
+        .policy-img-slot img { width: 100%; height: 100%; object-fit: contain; }
+        .summary-info-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+        .summary-info-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #444; word-break: keep-all; }
+        .summary-info-item i { width: 16px; color: #2E7D32; font-size: 14px; }
+        .feature-highlight-box { background-color: #F1F8F5; border-radius: 10px; padding: 12px 15px; font-size: 14px; color: var(--forest-green); font-weight: 700; border-left: 4px solid #2E7D32; word-break: keep-all; }
+
+        .action-circle-wrapper { position: absolute; bottom: 25px; right: 25px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; color: var(--forest-green); }
+        .detail-link { text-decoration: none; color: inherit; }
+        .detail-link:visited { color: inherit; }
+        .btn-action-circle { width: 32px; height: 32px; background-color: var(--mint-light); border: 1px solid #C8E6C9; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--forest-green); transition: all 0.3s; }
+        .policy-card:hover .btn-action-circle, .policy-horizontal-card:hover .btn-action-circle { background-color: var(--forest-green); color: var(--white); border-color: var(--forest-green); }
+
+        .policy-horizontal-card { display: grid; grid-template-columns: 240px minmax(0, 1fr) 140px; background: var(--white); border: 1px solid #C8E6C9; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: all 0.3s ease; cursor: default; overflow: hidden; min-height: 200px; align-items: stretch; position: relative; border-radius: 18px; }
+        .policy-horizontal-card:hover { transform: scale(1.01); border-color: var(--forest-green); box-shadow: 0 10px 25px rgba(6, 78, 59, 0.08); }
+        .horizontal-img-slot { width: 100%; height: 100%; min-height: 200px; background-color: #E2E8F0; display: flex; align-items: center; justify-content: center; color: #888; font-size: 13px; overflow: hidden; }
+        .horizontal-img-slot img { width: 100%; height: 100%; object-fit: contain; }
+        .horizontal-info-core { padding: 30px; text-align: left; min-width: 0; }
+        .horizontal-title-flex { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; flex-wrap: wrap; }
+        .horizontal-title-flex h3 { font-size: 22px; font-weight: 900; color: var(--forest-green); }
+        .horizontal-title-flex .always-tag { padding: 3px 8px; background: #E3F2FD; color: #1565C0; font-size: 11px; font-weight: 800; border-radius: 999px; }
+        .horizontal-action-zone { display: flex; justify-content: center; align-items: center; height: 100%; border-left: 1px dashed #E0E0E0; color: var(--forest-green); font-weight: 800; font-size: 14px; gap: 6px; padding: 0 12px; }
+
+        /* 📅 캘린더 */
+        .calendar-container { background: var(--white); padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(200,230,201,0.5); }
+        .calendar-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 5px; }
+        .calendar-nav-btn { font-size: 16px; color: #999; cursor: pointer; user-select: none; }
+        .calendar-month-title { color: var(--charcoal); font-size: 16px; font-weight: 800; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 12px; column-gap: 6px; margin-bottom: 25px; }
+        .calendar-header { text-align: center; font-weight: 700; padding: 5px 0; font-size: 11px; color: #BBB; text-transform: uppercase; }
+        .calendar-cell { min-height: 52px; padding: 4px 2px; background: #FFF; font-size: 12px; font-weight: 600; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .calendar-cell .day-num { display: block; color: #444; margin-bottom: 3px; font-weight: 700; }
+        .calendar-cell.empty { background: none; }
+        .event-chip { font-size: 9px; padding: 2px 6px; width: 100%; font-weight: 700; border-radius: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; margin-top: 1px; scale: 0.95; }
+        .event-chip.gapyear { background-color: var(--chip-gapyear); color: var(--chip-gapyear-txt); }
+        .event-chip.lab { background-color: var(--chip-lab); color: var(--chip-lab-txt); }
+        .event-chip.cert { background-color: var(--chip-cert); color: var(--chip-cert-txt); }
+        .event-chip.alert { background-color: var(--chip-alert); color: var(--chip-alert-txt); }
+        .event-chip.work { background-color: var(--chip-work); color: var(--chip-work-txt); }
+        .event-chip.supporter { background-color: var(--chip-supporter); color: var(--chip-supporter-txt); }
+        .event-chip.closed { background-color: var(--chip-closed); color: var(--chip-closed-txt); }
+        .event-chip.forum { background-color: var(--chip-forum); color: var(--chip-forum-txt); }
+        .event-chip.startup { background-color: var(--chip-startup); color: var(--chip-startup-txt); }
+        .tag.closed { background:#FEE2E2 !important; color:#B91C1C !important; }
+        .tag.new { background:#F3E8FF !important; color:#7E22CE !important; }
+        .tag.recruit { background:#FEF3C7 !important; color:#B45309 !important; }
+        .tag.culture { background:#ECFDF5 !important; color:#047857 !important; }
+        .tag.startup { background:#E0F2FE !important; color:#0369A1 !important; }
+        .archive-status-chip { display:inline-flex; align-items:center; gap:6px; margin-top:16px; padding:6px 10px; border-radius:999px; background:#FEE2E2; color:#B91C1C; font-size:12px; font-weight:900; }
+        .calendar-legend { display: flex; gap: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #F0F0F0; justify-content: flex-start; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666; font-weight: 700; }
+        .legend-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+        .calendar-schedule-list { text-align: left; width: 100%; }
+        .schedule-group-title { font-size: 14px; font-weight: 900; color: var(--forest-green); margin-bottom: 15px; margin-top: 20px; display: block; border-left: 3px solid #2E7D32; padding-left: 8px; }
+        .schedule-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; width: 100%; }
+        .schedule-date { font-size: 13px; font-weight: 800; color: #888; font-family: 'Inter'; width: 45px; flex-shrink: 0; text-align: left; }
+        .schedule-bullet-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+        .schedule-bullet-dot.blue { background-color: #818CF8; }
+        .schedule-bullet-dot.green { background-color: #34D399; }
+        .schedule-bullet-dot.gray { background-color: #CCC; }
+        .schedule-text { font-size: 13px; font-weight: 700; color: #333; line-height: 1.4; flex-grow: 1; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .schedule-item.past .schedule-text, .schedule-item.past .schedule-date { color: #A0A0A0; text-decoration: none; }
+
+        .footer { padding: 40px; background: var(--white); border-top: 1px solid #C8E6C9; font-size: 13px; color: #888; text-align: center; }
+        .portal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.99); z-index: 1000; display: none; overflow-y: auto; padding: 80px 120px; text-align: left; }
+        .portal-header-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid #EEE; padding-bottom: 20px; }
+        .portal-header-box h2 { color: var(--forest-green); font-size: 32px; font-weight: 900; }
+        .close-portal-icon { font-size: 24px; cursor: pointer; color: #888; }
+        .portal-main-info { background: #F1F8F5; padding: 35px; border-left: 5px solid #2E7D32; border-radius: 10px; margin-bottom: 40px; }
+        .portal-main-info p { font-size: 15px; margin-bottom: 12px; color: #333; }
+        .portal-main-info p strong { color: var(--forest-green); width: 120px; display: inline-block; }
+        .btn-portal-back-home { display: flex; align-items: center; gap: 10px; width: max-content; padding: 14px 35px; background-color: var(--charcoal); color: var(--white); border: none; font-size: 14px; font-weight: 800; cursor: pointer; border-radius: 10px; margin-top: 20px; }
+
+
+
+        /* 📚 인문 독서포럼 상세 페이지 */
+        .forum-detail-portal {
+            padding: 0;
+            background: #FFFFFF;
+            color: #0B4F3C;
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+        }
+        .forum-detail-topbar {
+            position: sticky; top: 0; z-index: 1200;
+            height: 64px; padding: 0 42px;
+            background: rgba(255,255,255,0.97);
+            border-bottom: 1px solid #E5E7EB;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .forum-detail-brand { font-weight: 800; color:#111827; letter-spacing:-0.03em; font-size:14px; cursor:pointer; }
+        .forum-detail-brand:hover { color:#047857; }
+        .forum-detail-nav { display:flex; align-items:center; gap:24px; font-size:13px; font-weight:700; color:#111827; margin-left:auto; margin-right:22px; }
+        .forum-detail-nav a { color:#111827; text-decoration:none; padding-bottom:4px; }
+        .forum-detail-nav a.active { border-bottom:2px solid #111827; }
+        .forum-vote-nav-btn {
+            display:inline-flex; align-items:center; justify-content:center;
+            min-height:38px; padding:0 16px; margin-left:4px;
+            background:#064E3B; color:#fff; text-decoration:none;
+            border-radius:8px; font-size:13px; font-weight:900; white-space:nowrap;
+            transition:transform .18s ease, background .18s ease;
+        }
+        .forum-vote-nav-btn:hover { background:#047857; transform:translateY(-1px); }
+        .forum-detail-apply { background:#111; color:#fff !important; padding:10px 20px !important; border-radius:0; }
+        .forum-back-link {
+            padding: 18px 42px; color:#94A3B8; font-weight:700; font-size:13px; cursor:pointer; width:max-content;
+        }
+        .forum-back-link i { margin-right:9px; }
+
+        .forum-hero, .forum-cta {
+            position: relative; overflow:hidden;
+            background:
+                radial-gradient(circle at 86% 12%, rgba(16,185,129,.14), transparent 22%),
+                radial-gradient(circle at 12% 88%, rgba(16,185,129,.08), transparent 22%),
+                linear-gradient(135deg, #062F27 0%, #07513E 54%, #052C24 100%);
+            color:#fff;
+        }
+        .forum-hero {
+            min-height: 380px; padding: 46px 42px 36px;
+        }
+        .forum-hero::before,
+        .forum-hero::after,
+        .forum-cta::before,
+        .forum-cta::after {
+            content:""; position:absolute; inset:0; pointer-events:none; background-repeat:no-repeat;
+        }
+        .forum-hero::before, .forum-cta::before {
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,.75) 0 1.1px, transparent 1.8px),
+                radial-gradient(circle, rgba(255,255,255,.55) 0 1px, transparent 1.7px),
+                radial-gradient(circle, rgba(110,231,183,.65) 0 1.5px, transparent 2.3px),
+                radial-gradient(circle, rgba(255,255,255,.42) 0 .9px, transparent 1.5px),
+                radial-gradient(circle, rgba(16,185,129,.5) 0 1.8px, transparent 2.5px),
+                radial-gradient(circle, rgba(255,255,255,.58) 0 1.1px, transparent 1.8px),
+                radial-gradient(circle, rgba(255,255,255,.38) 0 .9px, transparent 1.5px),
+                radial-gradient(circle, rgba(110,231,183,.48) 0 1.4px, transparent 2.2px),
+                radial-gradient(circle, rgba(255,255,255,.62) 0 1px, transparent 1.7px),
+                radial-gradient(circle, rgba(16,185,129,.42) 0 1.7px, transparent 2.4px),
+                radial-gradient(circle, rgba(255,255,255,.36) 0 .8px, transparent 1.4px),
+                radial-gradient(circle, rgba(110,231,183,.36) 0 1.3px, transparent 2px);
+            background-size: 4px 4px,4px 4px,6px 6px,4px 4px,6px 6px,4px 4px,4px 4px,6px 6px,4px 4px,6px 6px,4px 4px,6px 6px;
+            background-position: 7% 12%, 18% 42%, 28% 18%, 39% 55%, 52% 24%, 67% 12%, 81% 38%, 94% 18%, 12% 76%, 34% 86%, 63% 78%, 88% 72%;
+            opacity:.75;
+            animation: forumTwinkle 4.8s ease-in-out infinite alternate;
+        }
+        .forum-hero::after, .forum-cta::after {
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,.85) 0 1.2px, transparent 2px),
+                radial-gradient(circle, rgba(110,231,183,.55) 0 1.5px, transparent 2.5px),
+                radial-gradient(circle, rgba(255,255,255,.45) 0 .9px, transparent 1.5px),
+                radial-gradient(circle, rgba(16,185,129,.48) 0 1.6px, transparent 2.5px),
+                radial-gradient(circle, rgba(255,255,255,.5) 0 1px, transparent 1.6px);
+            background-size: 4px 4px,6px 6px,4px 4px,6px 6px,4px 4px;
+            background-position: 16% 20%, 41% 31%, 58% 10%, 73% 58%, 96% 52%;
+            opacity:.52;
+            animation: forumStarFloat 8s ease-in-out infinite alternate;
+        }
+        @keyframes forumStarFloat {
+            from { transform: translate3d(0,0,0); opacity:.45; }
+            to { transform: translate3d(4px,-8px,0); opacity:.72; }
+        }
+        @keyframes forumTwinkle {
+            0% { opacity:.28; filter: drop-shadow(0 0 0 rgba(255,255,255,0)); }
+            55% { opacity:.78; filter: drop-shadow(0 0 4px rgba(255,255,255,.28)); }
+            100% { opacity:.48; }
+        }
+        .forum-hero-inner { position:relative; z-index:2; max-width:980px; margin:0 auto; }
+        .forum-eyebrow { color:#6EE7B7; font-size:10px; font-weight:800; letter-spacing:.24em; margin-bottom:18px; }
+        .forum-eyebrow span { font-size:10px !important; padding:6px 11px !important; }
+        .forum-hero h1 {
+            font-family:'Noto Serif KR', serif;
+            font-size: clamp(28px, 2.65vw, 38px); line-height:1.30; letter-spacing:-.05em;
+            margin-bottom:20px; color:#fff; font-weight:900; max-width:620px;
+        }
+        .forum-hero h1 span { color:#22C98B; }
+        .forum-hero-desc { font-size:13.5px; line-height:1.72; color:rgba(255,255,255,.76); max-width:500px; margin-bottom:26px; word-break:keep-all; }
+        .forum-hero-meta {
+            display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:0;
+            border-top:1px solid rgba(255,255,255,.15); border-bottom:1px solid rgba(255,255,255,.15);
+            padding:13px 0; max-width:940px; margin-bottom:24px;
+        }
+        .forum-hero-meta small { display:block; color:#6EE7B7; font-weight:800; font-size:10px; margin-bottom:5px; }
+        .forum-hero-meta strong { display:block; color:#fff; font-size:12.5px; line-height:1.35; }
+        .forum-hero-buttons { display:flex; gap:12px; flex-wrap:wrap; }
+        .forum-btn-primary, .forum-btn-outline {
+            border:none; cursor:pointer; padding:10px 19px; font-size:12.5px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+            border-radius: 2px;
+        }
+        .forum-btn-primary { background:#10B981; color:#fff; box-shadow: 0 14px 30px rgba(16,185,129,.18); }
+        .forum-btn-outline { background:rgba(255,255,255,.035); color:#fff; border:1px solid rgba(16,185,129,.55); }
+
+        .forum-section { padding:66px 42px; background:#fff; }
+        .forum-section.alt { background:#F8FAFC; }
+        .forum-section.mint { background:#ECFDF5; }
+        .forum-section-inner { max-width:1180px; margin:0 auto; }
+        .forum-section-label { color:#10B981; font-size:12px; font-weight:900; letter-spacing:.42em; margin-bottom:24px; }
+        .forum-section h2 { font-family:'Noto Serif KR', serif; color:#064E3B; font-size:clamp(28px,3vw,44px); line-height:1.28; letter-spacing:-.045em; margin-bottom:28px; font-weight:700; }
+        .forum-two-col { display:grid; grid-template-columns: 1.05fr .95fr; gap:70px; align-items:start; }
+        .forum-body-text { color:#334155; font-size:16px; line-height:1.86; word-break:keep-all; }
+        .forum-body-text strong { color:#064E3B; }
+        .forum-card-side { border-left:3px solid #047857; padding-left:34px; color:#334155; }
+        .forum-card-side h3 { font-family:'Noto Serif KR', serif; font-size:24px; color:#064E3B; line-height:1.38; margin-bottom:18px; font-weight:700; }
+        .forum-mini-table { width:100%; border-collapse:collapse; margin-top:24px; font-size:14px; }
+        .forum-mini-table td { border:1px solid #E5E7EB; padding:13px 16px; color:#94A3B8; }
+        .forum-mini-table td:last-child { color:#047857; font-weight:800; }
+        .forum-usp-grid, .forum-esg-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid #E5E7EB; }
+        .forum-usp-item, .forum-esg-item { padding:34px 34px; min-height:210px; border-right:1px solid #E5E7EB; }
+        .forum-usp-item:last-child, .forum-esg-item:last-child { border-right:none; }
+        .forum-num { font-family:'Noto Serif KR', serif; font-size:34px; color:#E5E7EB; font-weight:700; margin-bottom:16px; }
+        .forum-mini-label { color:#94A3B8; font-size:11px; font-weight:900; letter-spacing:.32em; margin-bottom:9px; }
+        .forum-usp-item h3, .forum-esg-item h3 { font-family:'Noto Serif KR', serif; color:#064E3B; font-size:20px; margin-bottom:16px; font-weight:700; }
+        .forum-usp-item p, .forum-esg-item p { color:#475569; font-size:14.5px; line-height:1.78; word-break:keep-all; }
+        .forum-life { display:grid; grid-template-columns: 280px 1fr; gap:58px; margin-top:66px; }
+        .forum-life h2 { font-size:34px; margin-bottom:0; }
+        .forum-science-card { border:1px solid #E5E7EB; padding:34px 38px; margin-top:28px; }
+        .forum-science-card h3 { font-family:'Noto Serif KR', serif; color:#064E3B; font-size:21px; margin-bottom:8px; font-weight:700; }
+        .forum-science-card .sub { color:#94A3B8; font-size:14px; margin-bottom:24px; }
+        .forum-science-card p { color:#334155; font-size:14.5px; line-height:1.8; word-break:keep-all; }
+        .forum-habit-bar { display:grid; grid-template-columns:1fr 1fr 1fr; overflow:hidden; border-radius:9px; margin:28px 0 18px; color:#fff; font-weight:800; text-align:center; }
+        .forum-habit-bar div { padding:9px; font-size:13px; }
+        .forum-habit-bar .red { background:#FF5A5F; } .forum-habit-bar .yellow { background:#F6B40F; } .forum-habit-bar .green { background:#10B981; }
+        .forum-speed-box { display:grid; grid-template-columns:1fr 60px 1fr; align-items:center; text-align:center; background:#F8FAFC; border:1px solid #EEF2F7; border-radius:12px; padding:24px; margin-top:22px; }
+        .forum-speed-box strong { font-size:28px; color:#064E3B; }
+        .forum-timeline { border:1px solid #E5E7EB; margin-top:42px; }
+        .forum-timeline-row { display:grid; grid-template-columns:140px 1fr 70px; gap:20px; align-items:center; min-height:82px; padding:20px 34px; border-bottom:1px solid #E5E7EB; }
+        .forum-timeline-row:last-child { border-bottom:none; }
+        .forum-timeline-row.inactive { opacity:.35; }
+        .forum-timeline-row h3 { font-family:'Noto Serif KR', serif; color:#064E3B; font-size:19px; font-weight:700; }
+        .forum-timeline-badge { display:inline-block; border:1.5px solid #064E3B; color:#064E3B; padding:7px 14px; font-size:11px; font-weight:900; letter-spacing:.16em; }
+        .forum-info-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid #E5E7EB; margin-top:50px; }
+        .forum-info-grid div { padding:24px 34px; border-right:1px solid #E5E7EB; }
+        .forum-info-grid div:last-child { border-right:none; }
+        .forum-info-grid small { display:block; color:#94A3B8; font-weight:800; margin-bottom:10px; font-size:12px; }
+        .forum-info-grid strong { color:#064E3B; font-size:17px; }
+        .forum-ref-block { margin-bottom:38px; border-left:3px solid #E5E7EB; padding-left:26px; }
+        .forum-ref-block h3 { color:#064E3B; font-size:16px; margin-bottom:13px; }
+        .forum-ref-block p { color:#475569; font-size:14.5px; line-height:1.72; }
+        .forum-cta { text-align:center; padding:58px 42px; }
+        .forum-cta .forum-section-inner { position:relative; z-index:2; }
+        .forum-cta h2 { font-family:'Noto Serif KR', serif; color:#fff; font-size:clamp(28px,2.7vw,38px); line-height:1.30; letter-spacing:-.045em; margin-bottom:18px; font-weight:900; }
+        .forum-cta h2 span { color:#10B981; }
+        .forum-cta p { color:rgba(255,255,255,.68); font-size:13.5px; line-height:1.7; margin-bottom:22px; }
+        .forum-cta-meta { display:flex; justify-content:center; gap:42px; margin:24px 0; color:#fff; }
+        .forum-cta-meta small { display:block; color:rgba(255,255,255,.4); font-weight:800; margin-bottom:7px; font-size:12px; }
+        .forum-cta-meta strong { font-size:15.5px; }
+        @media (max-width: 900px) {
+            .forum-detail-topbar { padding:0 14px; height:58px; gap:10px; } .forum-detail-nav { display:none; } .forum-vote-nav-btn { min-height:34px; padding:0 12px; font-size:12px; margin-left:auto; }
+           
+            .forum-hero { padding:56px 24px 42px; min-height:auto; }
+            .forum-eyebrow { font-size:10px; letter-spacing:.18em; margin-bottom:22px; }
+            .forum-hero h1 { font-size:32px; line-height:1.28; }
+            .forum-hero-desc { font-size:15px; margin-bottom:30px; }
+            .forum-hero-meta, .forum-two-col, .forum-usp-grid, .forum-esg-grid, .forum-life, .forum-info-grid { grid-template-columns:1fr; }
+            .forum-hero-meta { gap:16px; }
+            .forum-usp-item, .forum-esg-item { border-right:none; border-bottom:1px solid #E5E7EB; }
+            .forum-section { padding:58px 24px; }
+            .forum-section h2 { font-size:32px; }
+            .forum-timeline-row { grid-template-columns:1fr; }
+            .forum-cta-meta { flex-direction:column; gap:18px; }
+        }
+
+        @media (max-width: 1180px) {
+            .hero-container { grid-template-columns: 1fr; width: min(940px, calc(100% - 40px)); gap: 34px; padding: 40px 34px 48px; }
+            .hero-right-slider { justify-self: stretch; max-width: 100%; height: 420px; }
+            .main-split-wrapper { grid-template-columns: 1fr; padding: 20px 30px 50px; }
+            .sidebar-sticky-area { position: static; }
+        }
+        @media (max-width: 760px) {
+            .nav-bar { padding: 12px 20px; }
+            .nav-links { display: none; }
+            .hero-container { width: calc(100% - 24px); margin: 18px auto 30px; padding: 30px 22px 38px; border-radius: 24px; }
+            .hero-left h1 { font-size: 39px; }
+            .hero-left p.desc { font-size: 16px; }
+            .hero-right-slider { height: auto; min-height: 520px; border-radius: 22px; }
+            .slide-view { grid-template-columns: 1fr; gap: 16px; padding: 60px 22px 56px; }
+            .slide-img-bg { min-height: 260px; padding: 16px; }
+            .slide-info-overlay { width: 100%; min-height: 142px; margin: 0; padding: 20px 22px; }
+            .slide-info-overlay h2 { font-size: 20px; }
+            .hero-floating-count, .hero-floating-status { display: none; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .policy-horizontal-card { grid-template-columns: 1fr; }
+            .horizontal-action-zone { min-height: 70px; border-left: none; border-top: 1px dashed #E0E0E0; }
+        }
+    
+        .forum-ref-block small { display:block; margin-top:14px; color:#94A3B8; font-size:14px; line-height:1.7; word-break:keep-all; }
+        .forum-ref-block small em { font-style:italic; color:#7C8AA0; }
+</style>
+</head>
+<body>
+
+  <div class="nav-bar">
+    <div class="logo-wrapper" onclick="window.location.reload();">
+        <img src="greenlight.jpeg" alt="그린라이트 광주 2026" class="logo-img">
+    </div>
+    <div class="nav-links">
+        <a href="#policies-anchor">청년 정책 소개</a>
+        <a href="#services-anchor">상시 지원 프로그램</a>
+        <a href="#archive-anchor">지난 정책</a>
+        <button class="btn-top-apply" onclick="openPortal('signup-portal')">회원가입</button>
+    </div>
+</div>
+
+<div class="portal-overlay" id="signup-portal">
+    <div class="portal-header-box">
+        <h2>회원가입</h2>
+        <span class="close-portal-icon" onclick="closePortal('signup-portal')"><i class="fa-solid fa-xmark"></i></span>
+    </div>
+    <div class="portal-main-info">
+        <p>초대 코드를 입력하여 자격 인증을 완료해주세요.</p>
+        <input type="text" id="inviteCode" placeholder="초대 코드 입력" style="width:100%; padding:15px; border:1px solid #ccc; margin-bottom:10px;">
+        <button class="btn-portal-back-home" onclick="checkCode()">가입 신청하기</button>
+    </div>
+</div>
+
+
+<div class="portal-overlay forum-detail-portal" id="forum-member-portal">
+    <div class="forum-detail-topbar">
+        <div class="forum-detail-brand" onclick="closePortal('forum-member-portal'); window.scrollTo({top:0, behavior:'smooth'});">그린라이트 광주</div>
+        <div class="forum-detail-nav">
+            <a href="#forum-philosophy" class="active">사유의 철학</a>
+            <a href="#forum-science">과학적 근거</a>
+            <a href="#forum-program">4학기 과정</a>
+        </div>
+        <a class="forum-vote-nav-btn" href="intellectual_vote.html">투표하기</a>
+        <span class="close-portal-icon" onclick="closePortal('forum-member-portal')"><i class="fa-solid fa-xmark"></i></span>
+    </div>
+
+    <section class="forum-hero">
+        <div class="forum-hero-inner">
+            <div class="forum-eyebrow">2026 인문 독서포럼 · 광주시민 누구나 <span style="border:1px solid #10B981; padding:10px 18px; margin-left:18px; letter-spacing:0;">총 4학기 과정</span></div>
+            <h1>독서는 뇌를<br>물리적으로 변화시키는<br><span>사유의 훈련</span>입니다.</h1>
+            <p class="forum-hero-desc">단순한 지식 습득을 넘어, 생각의 습관을 다시 세우는 여정. 뇌과학이 증명한 임계점을 함께 통과하세요.</p>
+            <div class="forum-hero-meta">
+                <div><small>시작일</small><strong>2026년 6월 29일</strong></div>
+                <div><small>과정</small><strong>총 4학기 · 주 3회 포럼</strong></div>
+                <div><small>대상</small><strong>참여를 희망하는 광주 청년 및 시민</strong></div>
+                <div><small>참가비</small><strong>무료</strong></div>
+            </div>
+            <div class="forum-hero-buttons">
+                <a href="#" class="forum-btn-primary" onclick="openPortal('signup-portal'); return false;">지금 바로 신청하기 <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#forum-science" class="forum-btn-outline">과학적 근거 보기 <i class="fa-solid fa-chevron-down"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="forum-section" id="forum-philosophy">
+        <div class="forum-section-inner forum-two-col">
+            <div>
+                <div class="forum-section-label">WHY GWANGJU · WHY HUMANITIES</div>
+                <h2>왜 광주이며,<br>왜 인문학인가?</h2>
+                <p class="forum-body-text">수도권에는 수많은 독서 플랫폼이 있습니다. 그러나 광주에는 청년의 성장을 <strong>'과학적 시스템'</strong>으로 뒷받침할 인적·지적 자본의 기지가 아직 부족합니다. 단순히 책을 소비하는 공간이 아닌, 뇌과학과 인문학을 결합하여 지역 청년들의 신경망을 물리적으로 재설계하고 삶의 임계점을 돌파하게 만드는 <strong>'지적 그린라이트'</strong>가 필요합니다.</p>
+            </div>
+            <div class="forum-card-side">
+                <div class="forum-section-label" style="margin-bottom:22px;">VS. 일반 독서 커뮤니티</div>
+                <h3>Brain Architecture,<br>단순 모임이 아닙니다.</h3>
+                <p class="forum-body-text" style="font-size:19px;">즐거움을 위한 모임을 넘어, 총 4학기 동안 지속되는 과학적 훈련을 통해 읽는 힘이 삶의 습관이 되도록 돕습니다.</p>
+                <table class="forum-mini-table">
+                    <tr><td>기간</td><td>주 3회 × 4학기</td></tr>
+                    <tr><td>목표</td><td>신경망 재설계</td></tr>
+                    <tr><td>근거</td><td>동료 심사 논문</td></tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="forum-section alt" id="forum-difference">
+        <div class="forum-section-inner">
+            <div class="forum-section-label">UNIQUE SELLING POINTS</div>
+            <h2>일반 독서 모임과는 다릅니다.</h2>
+            <div class="forum-usp-grid">
+                <div class="forum-usp-item"><div class="forum-num">01</div><div class="forum-mini-label">BRAIN ARCHITECTURE</div><h3>과학적 시스템</h3><p>단순한 모임을 넘어, 뇌과학 원리를 설계에 도입하여 뇌 회로를 실질적으로 재구조화하는 훈련을 지향합니다.</p></div>
+                <div class="forum-usp-item"><div class="forum-num">02</div><div class="forum-mini-label">CRITICAL MASS</div><h3>4학기 연속성</h3><p>휘발되는 지식이 아닌, 읽는 힘이 삶의 습관이 되도록 돕는 4학기 연속 시스템으로 운영합니다.</p></div>
+                <div class="forum-usp-item"><div class="forum-num">03</div><div class="forum-mini-label">ONE ESSENCE, FOUR DEPTHS</div><h3>하나의 본질, 네 개의 깊이</h3><p>참여자의 투표로 선정된 한 권의 고전을 4학기 동안 심도 있게 배워가며 내면화합니다.</p></div>
+            </div>
+            <div class="forum-life">
+                <h2>왜 인문학적<br>가치로<br>살아가야<br>하는가?</h2>
+                <p class="forum-body-text">인문학은 단순히 지식을 쌓는 도구가 아닙니다. 복잡한 세상 속에서 <strong>'나다움'</strong>을 유지할 수 있는 내면의 질서를 잡는 과정입니다. 우리는 이 과정을 통해 비로소 삶의 주도권을 되찾고, 단순한 정보의 소비자가 아니라 스스로 사유하고 판단하는 주체적 인간으로 성장하는 것입니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="forum-section mint">
+        <div class="forum-section-inner">
+            <div class="forum-section-label">E · S · G</div>
+            <h2>나의 성장이 곧 우리 지역의<br>지속 가능한 가치가 됩니다.</h2>
+            <p class="forum-body-text" style="max-width:760px; margin-bottom:70px;">인문 독서포럼은 개인의 지적 성장을 넘어, 광주 지역 사회의 지속 가능한 인적 자본을 형성하는 원칙과 맞닿아 있습니다.</p>
+            <div class="forum-esg-grid">
+                <div class="forum-esg-item"><div style="background:#10B981;color:white;width:58px;height:58px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;margin-bottom:38px;">E</div><div class="forum-mini-label">ENVIRONMENTAL</div><h3>환경 경영</h3><p>Paperless 운영과 환경 리터러시 교육을 통해 지속 가능한 미래를 위한 책임을 다합니다.</p></div>
+                <div class="forum-esg-item"><div style="background:#064E3B;color:white;width:58px;height:58px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;margin-bottom:38px;">S</div><div class="forum-mini-label">SOCIAL</div><h3>사회적 기여</h3><p>건강한 지역 사회의 리더를 육성하고, 청년들이 자기 주도적 성장의 토대를 마련할 수 있도록 지원합니다.</p></div>
+                <div class="forum-esg-item"><div style="background:#374151;color:white;width:58px;height:58px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;margin-bottom:38px;">G</div><div class="forum-mini-label">GOVERNANCE</div><h3>투명한 운영</h3><p>참여자가 직접 커리큘럼을 투표로 결정하는 민주적 의사결정 시스템을 운영합니다.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="forum-section" id="forum-science">
+        <div class="forum-section-inner">
+            <div class="forum-section-label">THE SCIENCE</div>
+            <h2>왜 '주 3회, 총 4학기'인가?</h2>
+            <p class="forum-body-text" style="margin-bottom:50px;">이 프로그램의 설계는 직관이 아닌 <strong>동료 심사(peer-reviewed) 논문</strong>에 기반합니다.</p>
+            <div class="forum-science-card">
+                <h3>A&nbsp;&nbsp; 습관 형성: 66일의 법칙</h3><div class="sub">The 66-Day Rule of Habit Formation</div>
+                <p>행동이 자동화되는 데 필요한 평균 시간은 66일입니다. 총 4학기 과정은 독서가 단순한 의지가 아니라 생활의 리듬으로 자리 잡도록 반복의 구조를 제공합니다.</p>
+                <div class="forum-habit-bar"><div class="red">저항</div><div class="yellow">불안정</div><div class="green">동화 ✓</div></div>
+                <p style="font-size:14px;color:#94A3B8;">Lally et al., 2010</p>
+            </div>
+            <div class="forum-science-card"><h3>B&nbsp;&nbsp; 독서와 뇌 연결성 강화</h3><div class="sub">Reading & Brain Connectivity</div><p>심도 있는 독서는 언어·감각 영역의 신경망 연결성을 강화하고, 이 효과는 독서 종료 후에도 지속될 수 있습니다.</p><p style="font-size:14px;color:#94A3B8;">Berns et al., 2013</p></div>
+            <div class="forum-science-card"><h3>C&nbsp;&nbsp; 뇌의 구조적 변화: 마이엘린</h3><div class="sub">White Matter & Learning</div><p>반복적 학습이 쌓이면 신경 신호 전달 속도가 빨라집니다. 독서를 반복할수록 뇌는 정보를 저장하는 것을 넘어 정보를 처리하는 방식 자체를 훈련합니다.</p><div class="forum-speed-box"><div><small>학습 초기</small><br><strong>1×</strong><br><small>전달 속도</small></div><div style="font-size:28px;color:#10B981;">→</div><div><small>4학기 후</small><br><strong>100×</strong><br><small>전달 속도</small></div></div><p style="font-size:14px;color:#94A3B8;">Fields, 2008</p></div>
+            <div class="forum-science-card"><h3>D&nbsp;&nbsp; 임계 질량: 총 4학기의 근거</h3><div class="sub">Long-Term Potentiation & Neural Plasticity</div><p>반복적인 자극이 축적되면 뇌는 새로운 사고 패턴을 더 빠르고 정확하게 실행합니다. 총 4학기는 습관을 넘어 임계 질량에 도달하기 위한 최소 시간으로 설계되었습니다.</p><p style="font-size:14px;color:#94A3B8;">Bliss & Collingridge, 1993</p></div>
+        </div>
+    </section>
+
+    <section class="forum-section" id="forum-program">
+        <div class="forum-section-inner">
+            <div class="forum-section-label">ONE ESSENCE, FOUR DEPTHS</div>
+            <h2>하나의 본질,<br>네 개의 깊이</h2>
+            <p class="forum-body-text" style="max-width:760px; margin-left:auto; margin-top:-120px;">시작 전 참여자 투표로 선정된 <strong>'단 한 권의 고전'</strong>을 10개월 동안 심층 탐구합니다. 2학기부터의 탐구 방향은 참여자의 지적 관심과 투표에 따라 유연하게 결정됩니다.</p>
+            <div class="forum-timeline">
+                <div class="forum-timeline-row"><div><h3>1학기</h3><small>6월 - 8월</small></div><div><strong>고전의 발견</strong> <span class="forum-timeline-badge">PRE-ORIENTATION & FOUNDATION</span></div><div>✓</div></div>
+                <div class="forum-timeline-row inactive"><div><h3>2학기</h3><small>9월 - 10월</small></div><div><span class="forum-timeline-badge">EVOLVING CURRICULUM</span></div><div>투표</div></div>
+                <div class="forum-timeline-row inactive"><div><h3>3학기</h3><small>11월 - 1월</small></div><div><span class="forum-timeline-badge">EVOLVING CURRICULUM</span></div><div>투표</div></div>
+                <div class="forum-timeline-row inactive"><div><h3>4학기</h3><small>2월 - 3월</small></div><div><span class="forum-timeline-badge">EVOLVING CURRICULUM</span></div><div>투표</div></div>
+            </div>
+            <div class="forum-info-grid">
+                <div><small>진행 시간</small><strong>주 3회 · 매회 60–90분</strong></div>
+                <div><small>커리큘럼 결정 방식</small><strong>참여자 직접 투표</strong></div>
+                <div><small>참여 대상</small><strong>참여를 희망하는 광주 청년 및 시민</strong></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="forum-section" id="forum-result">
+        <div class="forum-section-inner">
+            <div class="forum-section-label" style="color:#94A3B8;">REFERENCES</div>
+            <div class="forum-ref-block">
+                <h3>A — 습관 형성</h3>
+                <p>새로운 행동이 자동화되기까지 평균 66일이 소요된다는 연구를 바탕으로 지속적 훈련의 중요성을 반영했습니다.</p>
+                <small>Lally, P., van Jaarsveld, C. H. M., Potts, H. W. W., &amp; Wardle, J. (2010). How are habits formed: Modelling habit formation in the real world. <em>European Journal of Social Psychology, 40</em>(6), 998–1009. https://doi.org/10.1002/ejsp.674</small>
+            </div>
+            <div class="forum-ref-block">
+                <h3>B — 독서와 뇌 연결성</h3>
+                <p>심도 있는 독서가 뇌의 신경망 연결성 증가와 관련될 수 있다는 연구를 프로그램 설계에 참고했습니다.</p>
+                <small>Berns, G. S., Blaine, K., Prietula, M. J., &amp; Pye, B. E. (2013). Short- and long-term effects of a novel on connectivity in the brain. <em>Brain Connectivity, 3</em>(6), 590–600. https://doi.org/10.1089/brain.2013.0166</small>
+            </div>
+            <div class="forum-ref-block">
+                <h3>C — 마이엘린 구조화</h3>
+                <p>반복적 학습과 신경 신호 전달 속도 향상의 원리를 바탕으로 독서 훈련의 누적 효과를 강조했습니다.</p>
+                <small>Fields, R. D. (2008). White matter in learning, cognition and psychiatric disorders. <em>Trends in Neurosciences, 31</em>(7), 361–370. https://doi.org/10.1016/j.tins.2008.04.001</small>
+            </div>
+            <div class="forum-ref-block">
+                <h3>D — 장기 강화(LTP)</h3>
+                <p>반복적인 자극이 신경 연결을 강화한다는 원리를 바탕으로 총 4학기 과정의 연속성을 설계했습니다.</p>
+                <small>Bliss, T. V. P., &amp; Collingridge, G. L. (1993). A synaptic model of memory: Long-term potentiation in the hippocampus. <em>Nature, 361</em>, 31–39. https://doi.org/10.1038/361031a0</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="forum-cta">
+        <div class="forum-section-inner">
+            <div class="forum-section-label">현재 참여자 모집 중 · D-19</div>
+            <h2>총 4학기 뒤,<br><span>읽는 힘은 삶의 습관이 됩니다.</span></h2>
+            <p>뇌과학이 설계한 총 4학기의 여정.<br>지금 신청하여 당신의 신경망을 재설계하세요.</p>
+            <div class="forum-cta-meta"><div><small>시작일</small><strong>2026.06.29</strong></div><div><small>과정</small><strong>총 4학기</strong></div><div><small>참가비</small><strong>무료</strong></div></div>
+            <a href="#" class="forum-btn-primary" style="background:#fff;color:#064E3B;" onclick="openPortal('signup-portal'); return false;">지금 바로 신청하기 <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+</div>
+
+    <div class="hero-container">
+        <div class="hero-left">
+            <div class="hero-tag">광주광역시 청년 정책 큐레이션</div>
+            <h1>광주 청년의<br>내일에 <span>청신호</span>를 켜다</h1>
+            <p class="desc">그린라이트 광주는 광주광역시 청년을 위한 정책과 프로그램을 한눈에 보여주는 큐레이션 플랫폼입니다. 6월 신규 모집 정책과 청년 참여 프로그램을 한눈에 정리해보세요.</p>
+
+            <div class="hero-button-row">
+                <button class="btn-hero-green" onclick="document.getElementById('policies-anchor').scrollIntoView({behavior:'smooth'});">
+                    6월 모집 정책 보기 <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button class="btn-hero-outline" onclick="document.getElementById('archive-anchor').scrollIntoView({behavior:'smooth'});">
+                    지난 정책 보기
+                </button>
+            </div>
+
+            <div class="hero-stats-row">
+                <div class="hero-stat-item">
+                    <div class="hero-stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <div class="hero-stat-text"><strong>4개</strong><span>6월 모집·참여 프로그램</span></div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="hero-stat-text"><strong>12,000+</strong><span>청년 수혜자</span></div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-icon"><i class="fa-regular fa-calendar"></i></div>
+                    <div class="hero-stat-text"><strong>매월 업데이트</strong><span>최신 정보 제공</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-right-slider">
+            <div class="hero-floating-count">
+                <strong>4</strong>
+                <span>6월 모집·참여 프로그램</span>
+            </div>
+            <div class="slide-track" id="main-slide-track">
+                <div class="slide-view">
+                    <div class="slide-img-bg"><img src="work-dream.png" alt="광주청년 일경험드림" onerror="showSlidePlaceholder(this, '광주청년 일경험드림');"></div>
+                    <div class="slide-info-overlay"><span class="slide-badge active">신규모집</span><h2>제20기 일경험드림 드림터·드림청년 모집 일정</h2></div>
+                </div>
+                <div class="slide-view">
+                    <div class="slide-img-bg"><img src="youth-supporters.png" alt="청년정책 서포터즈" onerror="showSlidePlaceholder(this, '청년정책 서포터즈 2기');"></div>
+                    <div class="slide-info-overlay"><span class="slide-badge active">접수중</span><h2>청년정책을 콘텐츠로 알리는 서포터즈 2기</h2></div>
+                </div>
+                <div class="slide-view">
+                    <div class="slide-img-bg"><img src="reading-forum.png" alt="2026 6월 인문 독서포럼" onerror="showSlidePlaceholder(this, '2026 6월 인문 독서포럼');"></div>
+                    <div class="slide-info-overlay"><span class="slide-badge active">접수예정</span><h2>2026 6월 인문 독서포럼</h2></div>
+                </div>
+                <div class="slide-view">
+                    <div class="slide-img-bg"><img src="startup-idea.png" alt="청년 창업 아이디어 공모" onerror="showSlidePlaceholder(this, '청년 창업 아이디어 공모');"></div>
+                    <div class="slide-info-overlay"><span class="slide-badge active">접수중</span><h2>남구·광주대학교 협업 창업 아이디어 공모 및 지원</h2></div>
+                </div>
+                <div class="slide-view">
+                    <div class="slide-img-bg"><img src="상상옷장.png" alt="면접복장 대여"></div>
+                    <div class="slide-info-overlay"><span class="slide-badge always">상시진행</span><h2>광주 청년 면접복장 대여 서비스</h2></div>
+                </div>
+            </div>
+
+            <div class="slider-dots">
+                <div class="dot active" onclick="goToSlide(0)"></div>
+                <div class="dot" onclick="goToSlide(1)"></div>
+                <div class="dot" onclick="goToSlide(2)"></div>
+                <div class="dot" onclick="goToSlide(3)"></div>
+                <div class="dot" onclick="goToSlide(4)"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main-split-wrapper">
+        
+        <div class="content-scroll-area">
+            <div id="policies-anchor">
+                <div class="content-block-title">6월 신규·접수 중 정책</div>
+                <div class="grid-2">
+
+                    <div class="policy-card">
+                        <div>
+                            <div class="policy-header"><h3>광주청년 일경험드림</h3><div class="tag new">신규사업</div></div>
+                            <div class="policy-img-slot"><img src="work-dream.png" alt="일경험드림" onerror="this.style.display='none'; this.parentElement.innerHTML='일경험드림 이미지 영역';"></div>
+
+                            <div class="summary-info-list">
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-check"></i> <span><strong>드림터 모집:</strong> 2026.06.01 10:00 ~ 06.17 17:00</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-plus"></i> <span><strong>드림청년 모집:</strong> 2026.06.29 10:00 ~ 07.15 17:00 예정</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-user"></i> <span><strong>지원 대상:</strong> 광주 거주 만 19세~39세 미취업 청년 및 참여사업장</span></div>
+                            </div>
+                            <div class="feature-highlight-box">핵심: 청년에게 실제 직무 경험을 제공하고, 참여사업장에는 인건비를 지원하는 광주 대표 일자리 사업</div>
+                        </div>
+                        <a class="detail-link action-circle-wrapper" href="https://gjyouthdream.com/" target="_blank" rel="noopener noreferrer">상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div></a>
+                    </div>
+
+                    <div class="policy-card">
+                        <div>
+                            <div class="policy-header"><h3>청년정책 서포터즈 2기</h3><div class="tag recruit">접수중</div></div>
+                            <div class="policy-img-slot"><img src="youth-supporters.png" alt="청년정책 서포터즈" onerror="this.style.display='none'; this.parentElement.innerHTML='청년정책 서포터즈 이미지 영역';"></div>
+
+                            <div class="summary-info-list">
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-check"></i> <span><strong>모집 기간:</strong> 2026.06.08 ~ 06.17 17:00</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-user"></i> <span><strong>모집 대상:</strong> 청년정책 및 콘텐츠 제작에 관심 있는 광주 청년</span></div>
+                                <div class="summary-info-item"><i class="fa-solid fa-bullhorn"></i> <span><strong>모집 분야:</strong> 블로그·SNS·유튜브 등 총 7명</span></div>
+                            </div>
+                            <div class="feature-highlight-box">혜택: 콘텐츠 제작비 지원, 분야별 역량강화 교육, 우수활동자 시상</div>
+                        </div>
+                        <a class="detail-link action-circle-wrapper" href="https://youth.gwangju.go.kr/www/50?mapngColumn=policy_id&policyId=1379&svc=&siteId=www&pageIndex=1&srchLocation=&srchPolicyTy=&tabType=&reqstAge=&keyword=&searchYear=2026&order=insertDesc&pageUnit=10&url=%2Fwww%2Fpolicy%2FgjYgPolicyView" target="_blank" rel="noopener noreferrer">상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div></a>
+                    </div>
+
+                    <div class="policy-card">
+                        <div>
+                            <div class="policy-header"><h3>2026 6월 인문 독서포럼</h3><div class="tag culture">회원전용</div></div>
+                            <div class="policy-img-slot"><img src="reading-forum.png" alt="2026 6월 인문 독서포럼" onerror="this.style.display='none'; this.parentElement.innerHTML='인문 독서포럼 이미지 영역';"></div>
+
+                            <div class="summary-info-list">
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-check"></i> <span><strong>접수 기간:</strong> 2026.06.15부터 접수 시작</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-plus"></i> <span><strong>운영 시작:</strong> 2026.06.29</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-user"></i> <span><strong>참여 대상:</strong> 참여를 희망하는 광주 청년 및 시민</span></div>
+                            </div>
+                            <div class="feature-highlight-box">소개: 인문학과 독서를 함께 나누는 회원 전용 독서포럼입니다.</div>
+                        </div>
+                        <a class="detail-link action-circle-wrapper" href="#" onclick="openPortal('forum-member-portal'); return false;">상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div></a>
+                    </div>
+
+                    <div class="policy-card">
+                        <div>
+                            <div class="policy-header"><h3>2026년 창업 아이디어 공모 및 지원</h3><div class="tag startup">접수중</div></div>
+                            <div class="policy-img-slot"><img src="startup-idea.png" alt="2026년 창업 아이디어 공모 및 지원" onerror="this.style.display='none'; this.parentElement.innerHTML='창업 아이디어 공모 이미지 영역';"></div>
+
+                            <div class="summary-info-list">
+                                <div class="summary-info-item"><i class="fa-regular fa-calendar-check"></i> <span><strong>신청 기간:</strong> 2026.05.26 ~ 06.12</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-building"></i> <span><strong>지원 규모:</strong> 6개 업체 선정</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-handshake"></i> <span><strong>담당 기관:</strong> 광주광역시 남구청 · 광주대학교 협업</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-lightbulb"></i> <span><strong>공모 내용:</strong> 창의적인 창업 아이디어 보유 창업가 발굴·지원</span></div>
+                            </div>
+                            <div class="feature-highlight-box">혜택: 총 6,000만원 규모 사업화 자금 지원(업체별 1,000만원)과 창업 기본교육·멘토링 제공</div>
+                        </div>
+                        <a class="detail-link action-circle-wrapper" href="https://youth.gwangju.go.kr/www/50?mapngColumn=policy_id&policyId=1372&svc=&siteId=www&pageIndex=1&srchLocation=&srchPolicyTy=&tabType=&reqstAge=&keyword=&searchYear=2026&order=insertDesc&pageUnit=10&url=%2Fwww%2Fpolicy%2FgjYgPolicyView" target="_blank" rel="noopener noreferrer">상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="services-anchor">
+                <div class="content-block-title">상시 지원 프로그램 (ALWAYS ON)</div>
+                <div class="always-horizontal-container">
+                    
+                    <div class="policy-horizontal-card">
+                        <div class="horizontal-img-slot"><img src="상상옷장.png" alt="면접복장 대여"></div>
+                        <div class="horizontal-info-core">
+                            <div class="horizontal-title-flex"><h3>면접복장 대여</h3><span class="always-tag">상시진행</span></div>
+                            <div class="summary-info-list" style="margin-bottom: 10px;">
+                                <div class="summary-info-item"><i class="fa-regular fa-clock"></i> <span><strong>운영 방식:</strong> 연중 상시 운영 (예약제 수령)</span></div>
+                                <div class="summary-info-item"><i class="fa-solid fa-location-dot"></i> <span><strong>대여 장소:</strong> 광주청년센터 토닥토닥 상무점 2층 방문 수령</span></div>
+                            </div>
+                            <div class="feature-highlight-box" style="margin-bottom:0; width:max-content; padding:6px 15px;">혜택: 면접복장 상·하의, 블라우스, 구두 일체 무상 대여</div>
+                        </div>
+                        <a class="detail-link horizontal-action-zone" href="https://youth.gwangju.go.kr/www/50?mapngColumn=policy_id&policyId=1290&svc=&siteId=www&pageIndex=1&srchLocation=&srchPolicyTy=&tabType=&reqstAge=&keyword=%EC%A0%95%EC%9E%A5&searchYear=2026&order=insertDesc&pageUnit=10&url=%2Fwww%2Fpolicy%2FgjYgPolicyView" target="_blank" rel="noopener noreferrer">
+                            상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+
+                    <div class="policy-horizontal-card">
+                        <div class="horizontal-img-slot"><img src="이력서 사진.png" alt="이력서촬영"></div>
+                        <div class="horizontal-info-core">
+                            <div class="horizontal-title-flex"><h3>이력서 촬영</h3><span class="always-tag">상시진행</span></div>
+                            <div class="summary-info-list" style="margin-bottom: 10px;">
+                                <div class="summary-info-item"><i class="fa-regular fa-clock"></i> <span><strong>운영 방식:</strong> 매주 수요일 지정 회차별 10명 제한 선착순 예약제</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-user-check"></i> <span><strong>이용 자격:</strong> 만 19세 ~ 39세 구직 청년 (연 1회 제한)</span></div>
+                            </div>
+                            <div class="feature-highlight-box" style="margin-bottom:0; width:max-content; padding:6px 15px;">혜택: 이력서 전용 프로필 촬영 및 1:1 정밀 리터칭 보정 지원</div>
+                        </div>
+                        <a class="detail-link horizontal-action-zone" href="https://youth.gwangju.go.kr/www/50?mapngColumn=policy_id&policyId=1295&svc=&siteId=www&pageIndex=1&srchLocation=&srchPolicyTy=&tabType=&reqstAge=&keyword=%EC%9D%B4%EB%A0%A5%EC%84%9C&searchYear=2026&order=insertDesc&pageUnit=10&url=%2Fwww%2Fpolicy%2FgjYgPolicyView" target="_blank" rel="noopener noreferrer">
+                            상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+
+                    <div class="policy-horizontal-card">
+                        <div class="horizontal-img-slot"><img src="교통정책.png" alt="교통비지원"></div>
+                        <div class="horizontal-info-core">
+                            <div class="horizontal-title-flex"><h3>청년 교통비 지원</h3><span class="always-tag">상시진행</span></div>
+                            <div class="summary-info-list" style="margin-bottom: 10px;">
+                                <div class="summary-info-item"><i class="fa-regular fa-clock"></i> <span><strong>환급 방식:</strong> 대중교통 이용 실적 기반 익월 계좌 자동 페이백</span></div>
+                                <div class="summary-info-item"><i class="fa-regular fa-id-card"></i> <span><strong>연계 시스템:</strong> 광주 청년 G-패스 및 대중교통 K-패스 통합 연동</span></div>
+                            </div>
+                            <div class="feature-highlight-box" style="margin-bottom:0; width:max-content; padding:6px 15px;">혜택: 대중교통비 30% 환급 + 미취업 청년 추가 10만원권 지급</div>
+                        </div>
+                        <a class="detail-link horizontal-action-zone" href="https://www.gwangju.go.kr/traffic/contentsView.do?pageId=traffic61" target="_blank" rel="noopener noreferrer">
+                            상세보기 <div class="btn-action-circle"><i class="fa-solid fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sidebar-sticky-area">
+            <div class="calendar-container">
+                <div class="calendar-nav-header">
+                    <span class="calendar-nav-btn" onclick="changeMonth('prev')"><i class="fa-solid fa-chevron-left"></i></span>
+                    <span class="calendar-month-title" id="calendar-title">JUNE 2026</span>
+                    <span class="calendar-nav-btn" onclick="changeMonth('next')"><i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+                
+                <div class="calendar-grid" id="calendar-grid-target"></div>
+
+                <div class="calendar-legend">
+                    <div class="legend-item"><div class="legend-dot" style="background-color:#818CF8;"></div> 모집 일정</div>
+                    <div class="legend-item"><div class="legend-dot" style="background-color:#34D399;"></div> 주요 일정</div>
+                </div>
+
+                <div class="calendar-schedule-list" id="calendar-info-list"></div>
+            </div>
+        </div>
+
+    </div>
+ <div id="archive-anchor" style="padding: 60px; background-color: #E8F5E9;">
+    <h2 style="margin-bottom: 30px; font-weight: 900; color: #1A1A1A;">PAST ARCHIVE : 지난 정책</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
+        
+        <div style="background: #F8F9FA; padding: 30px; border: 2px solid #E0E0E0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <p style="font-size: 12px; color: #757575; font-weight: 700;">취업지원 | 지난 정책</p>
+            <h4 style="font-size: 18px; margin: 10px 0; color: #616161;">[광주청년 자격증 취득지원]</h4>
+            <p style="font-size: 14px; color: #757575; line-height: 1.5;">어학 및 국가기술자격증 시험 응시료를 지원하는 사업입니다. 청년 구직자의 시험 응시 부담을 줄이는 정책으로, 이전 회차 기록을 정리했습니다.</p>
+            <p style="font-size: 12px; color: #9E9E9E; margin-top: 15px;">2026.06.01 ~ 06.30</p>
+        </div>
+
+        <div style="background: #F8F9FA; padding: 30px; border: 2px solid #E0E0E0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <p style="font-size: 12px; color: #757575; font-weight: 700;">청년참여 | 지난 정책</p>
+            <h4 style="font-size: 18px; margin: 10px 0; color: #616161;">[청년정책실험실]</h4>
+            <p style="font-size: 14px; color: #757575; line-height: 1.5;">청년이 직접 정책을 제안하고 프로젝트를 실행하는 정책 설계 워크숍형 사업입니다.</p>
+            <p style="font-size: 12px; color: #9E9E9E; margin-top: 15px;">2026.05.22 ~ 06.07</p>
+        </div>
+
+        <div style="background: #F8F9FA; padding: 30px; border: 2px solid #E0E0E0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <p style="font-size: 12px; color: #757575; font-weight: 700;">진로탐색 | 지난 정책</p>
+            <h4 style="font-size: 18px; margin: 10px 0; color: #616161;">[광주형 청년갭이어]</h4>
+            <p style="font-size: 14px; color: #757575; line-height: 1.5;">진로 탐색이 필요한 청년에게 타 지역 프로젝트 참여와 활동비를 지원하는 사업입니다.</p>
+            <p style="font-size: 12px; color: #9E9E9E; margin-top: 15px;">2026.05.10 ~ 06.07</p>
+        </div>
+    </div>
+</div>
+
+<div style="padding: 10px 60px; background-color: #064E3B; color: white; text-align: left; font-size: 12px; font-weight: 500;">
+    그린라이트 광주 2026 플랫폼
+</div>
+    <div class="portal-overlay" id="lab-portal">
+        <div class="portal-header-box"><h2>청년정책 실험실 상세 안내</h2><span class="close-portal-icon" onclick="closePortal('lab-portal')"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="portal-main-info">
+            <p><strong>모집 상태:</strong> 모집 마감 및 연구 위원 구성 완료</p>
+            <p><strong>프로젝트비:</strong> 팀당 최대 400만원 프로젝트 실행비 전액 지원</p>
+            <p><strong>활동 범위:</strong> 광주 청년 조례 발의안 도출 및 정책 연구 워크숍 참여</p>
+        </div>
+        <button class="btn-portal-back-home" onclick="closePortal('lab-portal')"><i class="fa-solid fa-arrow-left"></i> 메인 홈으로 뒤로가기</button>
+    </div>
+
+    <div class="portal-overlay" id="gapyear-portal">
+        <div class="portal-header-box"><h2>광주형 청년갭이어 상세 안내</h2><span class="close-portal-icon" onclick="closePortal('gapyear-portal')"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="portal-main-info">
+            <p><strong>모집 상태:</strong> 2026.06.07 자정까지 온라인 서류 집중 접수 중</p>
+            <p><strong>활동 수당:</strong> 1인 최대 140만원 (타 지역 미션비 및 진로 설계비 포함)</p>
+            <p><strong>참여 자격:</strong> 주민등록상 광주광역시에 거주하는 만 19세 이상 39세 이하 미취업 구직 청년</p>
+        </div>
+        <button class="btn-portal-back-home" onclick="closePortal('gapyear-portal')"><i class="fa-solid fa-arrow-left"></i> 메인 홈으로 뒤로가기</button>
+    </div>
+
+    <div class="portal-overlay" id="cert-portal">
+        <div class="portal-header-box"><h2>자격증 취득지원 오픈 공지</h2><span class="close-portal-icon" onclick="closePortal('cert-portal')"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="portal-main-info">
+            <p><strong>오픈 일정:</strong> 2026.06.01 오전 09:00 시스템 정식 오픈</p>
+            <p><strong>지원 한도:</strong> 어학 및 국가기술 자격증 시험 응시료 실비 100% 전액 지원</p>
+        </div>
+        <button class="btn-portal-back-home" onclick="closePortal('cert-portal')"><i class="fa-solid fa-arrow-left"></i> 메인 홈으로 뒤로가기</button>
+    </div>
+
+    <div class="portal-overlay" id="closet-portal">
+        <div class="portal-header-box"><h2>면접복장 대여 가이드</h2><span class="close-portal-icon" onclick="closePortal('closet-portal')"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="portal-main-info">
+            <p><strong>대여 장소:</strong> 광주 서구 상무중앙로 34 2층 (광주청년센터 토닥토닥 상무점)</p>
+            <p><strong>운영 시간:</strong> 평일 10:00 ~ 20:30 / 토요일 10:00 ~ 17:30</p>
+        </div>
+        <button class="btn-portal-back-home" onclick="closePortal('closet-portal')"><i class="fa-solid fa-arrow-left"></i> 메인 홈으로 뒤로가기</button>
+    </div>
+
+    <div class="portal-overlay" id="portrait-portal">
+        <div class="portal-header-box"><h2>이력서 촬영 무료 서비스 상세</h2><span class="close-portal-icon" onclick="closePortal('portrait-portal')"><i class="fa-solid fa-xmark"></i></span></div>
+        <div class="portal-main-info">
+            <p><strong>지원 내용:</strong> 취업용 이력서 정밀 사진 촬영 및 1:1 보정 지원</p>
+            <p><strong>이용 조건:</strong> 매주 수요일 회차별 10명 제한 선착순 예약제</p>
+        </div>
+        <button class="btn-portal-back-home" onclick="closePortal('portrait-portal')"><i class="fa-solid fa-arrow-left"></i> 메인 홈으로 뒤로가기</button>
+    </div>
+
+
+    <script>
+
+        function showSlidePlaceholder(img, title) {
+            const box = img.parentElement;
+            box.innerHTML = `
+                <div class="slide-placeholder">
+                    <i class="fa-regular fa-image"></i>
+                    <strong>${title}</strong>
+                    <span>같은 폴더에 이미지 파일을 넣으면 이 영역에 자동으로 표시됩니다.</span>
+                </div>`;
+        }
+        let currentSlide = 0;
+        const totalSlides = 5;
+        function updateSlider() {
+            const track = document.getElementById('main-slide-track');
+            const dots = document.querySelectorAll('.dot');
+            track.style.transform = `translateX(-${currentSlide * 20}%)`;
+            dots.forEach((dot, idx) => {
+                if(idx === currentSlide) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        }
+        function goToSlide(index) { currentSlide = index; updateSlider(); }
+        setInterval(() => { currentSlide = (currentSlide + 1) % totalSlides; updateSlider(); }, 4000);
+
+        let currentViewMonth = 6;
+        
+        // 5월 달력 템플릿 (독서클럽 유령 흔적 완전 삭제 가공)
+        const mayTemplate = `
+            <div class="calendar-header" style="color:#EF4444;">sun</div><div class="calendar-header">mon</div><div class="calendar-header">tue</div><div class="calendar-header">wed</div><div class="calendar-header">thu</div><div class="calendar-header">fri</div><div class="calendar-header">sat</div>
+            <div class="calendar-cell empty"></div><div class="calendar-cell empty"></div><div class="calendar-cell empty"></div><div class="calendar-cell empty"></div><div class="calendar-cell empty"></div>
+            <div class="calendar-cell"><span class="day-num">1</span><div class="event-chip gapyear">갭이어</div><div class="event-chip lab">실험실</div></div>
+            <div class="calendar-cell"><span class="day-num">2</span><div class="event-chip gapyear">갭이어</div></div>
+            <div class="calendar-cell"><span class="day-num">3</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">4</span></div><div class="calendar-cell"><span class="day-num">5</span></div><div class="calendar-cell"><span class="day-num">6</span></div><div class="calendar-cell"><span class="day-num">7</span></div><div class="calendar-cell"><span class="day-num">8</span></div><div class="calendar-cell"><span class="day-num">9</span></div><div class="calendar-cell"><span class="day-num">10</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">11</span></div><div class="calendar-cell"><span class="day-num">12</span></div>
+            <div class="calendar-cell"><span class="day-num">13</span><div class="event-chip gapyear">갭이어</div></div>
+            <div class="calendar-cell"><span class="day-num">14</span><div class="event-chip cert">자격증</div></div>
+            <div class="calendar-cell"><span class="day-num">15</span><div class="event-chip lab">실험실</div></div>
+            <div class="calendar-cell"><span class="day-num">16</span></div>
+            <div class="calendar-cell"><span class="day-num">17</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">18</span></div><div class="calendar-cell"><span class="day-num">19</span></div><div class="calendar-cell"><span class="day-num">20</span></div><div class="calendar-cell"><span class="day-num">21</span></div><div class="calendar-cell"><span class="day-num">22</span></div><div class="calendar-cell"><span class="day-num">23</span></div>
+            <div class="calendar-cell"><span class="day-num">24</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">25</span></div><div class="calendar-cell"><span class="day-num">26</span></div>
+            <div class="calendar-cell"><span class="day-num">27</span><div class="event-chip gapyear">심사</div></div>
+            <div class="calendar-cell"><span class="day-num">28</span></div><div class="calendar-cell"><span class="day-num">29</span></div><div class="calendar-cell"><span class="day-num">30</span></div>
+            <div class="calendar-cell"><span class="day-num">31</span><div class="event-chip alert">실험마감</div></div>
+        `;
+        
+        // 5월 텍스트 리스트 피드 (불릿 인라인 매칭 및 독서포럼 완전 멸균 처리)
+        const mayInfo = `
+            <span class="schedule-group-title">다가오는 일정</span>
+            <div class="schedule-item"><span class="schedule-date">05.31</span><div class="schedule-bullet-dot blue"></div><span class="schedule-text">청년정책실험실 최종 마감</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.01</span><div class="schedule-bullet-dot green"></div><span class="schedule-text">광주 청년 자격증 취득지원 오픈</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.07</span><div class="schedule-bullet-dot blue"></div><span class="schedule-text">광주형 청년갭이어 집중모집 마감</span></div>
+        `;
+
+        const juneTemplate = `
+            <div class="calendar-header" style="color:#EF4444;">sun</div><div class="calendar-header">mon</div><div class="calendar-header">tue</div><div class="calendar-header">wed</div><div class="calendar-header">thu</div><div class="calendar-header">fri</div><div class="calendar-header">sat</div>
+            <div class="calendar-cell empty"></div>
+            <div class="calendar-cell"><span class="day-num">1</span><div class="event-chip work">드림터</div></div>
+            <div class="calendar-cell"><span class="day-num">2</span></div>
+            <div class="calendar-cell"><span class="day-num">3</span></div>
+            <div class="calendar-cell"><span class="day-num">4</span></div>
+            <div class="calendar-cell"><span class="day-num">5</span></div>
+            <div class="calendar-cell"><span class="day-num">6</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">7</span></div>
+            <div class="calendar-cell"><span class="day-num">8</span><div class="event-chip supporter">서포터즈</div></div>
+            <div class="calendar-cell"><span class="day-num">9</span></div>
+            <div class="calendar-cell"><span class="day-num">10</span></div>
+            <div class="calendar-cell"><span class="day-num">11</span></div>
+            <div class="calendar-cell"><span class="day-num">12</span></div>
+            <div class="calendar-cell"><span class="day-num">13</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">14</span></div>
+            <div class="calendar-cell"><span class="day-num">15</span><div class="event-chip forum">인문접수</div></div>
+            <div class="calendar-cell"><span class="day-num">16</span></div>
+            <div class="calendar-cell"><span class="day-num">17</span><div class="event-chip supporter">접수마감</div></div>
+            <div class="calendar-cell"><span class="day-num">18</span></div>
+            <div class="calendar-cell"><span class="day-num">19</span></div>
+            <div class="calendar-cell"><span class="day-num">20</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">21</span></div>
+            <div class="calendar-cell"><span class="day-num">22</span></div>
+            <div class="calendar-cell"><span class="day-num">23</span></div>
+            <div class="calendar-cell"><span class="day-num">24</span></div>
+            <div class="calendar-cell"><span class="day-num">25</span></div>
+            <div class="calendar-cell"><span class="day-num">26</span></div>
+            <div class="calendar-cell"><span class="day-num">27</span></div>
+            <div class="calendar-cell" style="color:#EF4444;"><span class="day-num">28</span></div>
+            <div class="calendar-cell"><span class="day-num">29</span><div class="event-chip forum">포럼시작</div><div class="event-chip work">드림청년</div></div>
+            <div class="calendar-cell"><span class="day-num">30</span></div>
+            <div class="calendar-cell empty"></div><div class="calendar-cell empty"></div><div class="calendar-cell empty"></div><div class="calendar-cell empty"></div>
+        `;
+        const juneInfo = `
+            <span class="schedule-group-title">6월 주요 일정</span>
+            <div class="schedule-item"><span class="schedule-date">06.08</span><div class="schedule-bullet-dot green"></div><span class="schedule-text">청년정책 서포터즈 2기 모집 시작</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.15</span><div class="schedule-bullet-dot green"></div><span class="schedule-text">2026 6월 인문 독서포럼 접수 시작</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.17</span><div class="schedule-bullet-dot blue"></div><span class="schedule-text">일경험드림 드림터·청년정책 서포터즈 접수 마감</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.12</span><div class="schedule-bullet-dot blue"></div><span class="schedule-text">창업 아이디어 공모 및 지원 신청 마감</span></div>
+            <div class="schedule-item"><span class="schedule-date">06.29</span><div class="schedule-bullet-dot green"></div><span class="schedule-text">인문 독서포럼 운영 시작·일경험드림 드림청년 모집 시작</span></div>
+        `;
+
+        function renderCalendar() {
+            const grid = document.getElementById('calendar-grid-target');
+            const title = document.getElementById('calendar-title');
+            const info = document.getElementById('calendar-info-list');
+            if(currentViewMonth === 5) { title.innerText = "MAY 2026"; grid.innerHTML = mayTemplate; info.innerHTML = mayInfo; }
+            else { title.innerText = "JUNE 2026"; grid.innerHTML = juneTemplate; info.innerHTML = juneInfo; }
+        }
+        function changeMonth(direction) {
+            if(direction === 'next' && currentViewMonth === 5) currentViewMonth = 6;
+            else if(direction === 'prev' && currentViewMonth === 6) currentViewMonth = 5;
+            renderCalendar();
+        }
+
+        window.onload = function() { renderCalendar(); };
+        function openPortal(id) { document.getElementById(id).style.display = 'block'; document.body.style.overflow = 'hidden'; }
+        function closePortal(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = ''; }
+    </script>
+
+</body>
+</html>
